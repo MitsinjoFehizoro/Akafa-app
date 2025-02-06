@@ -6,9 +6,8 @@ import { CustomText } from "./CustomText";
 import { SHADOW } from "@/constants/SHADOW";
 
 export function Footer() {
-	const colors = useThemeColor()
 	return (
-		<RowView style={[styles.container, { backgroundColor: colors.grayWhite }]}>
+		<RowView style={styles.container}>
 			<MenuFooter icon='mic' title='tonokira' />
 			<MenuFooter icon='note' title='solfa' />
 			<MenuHome />
@@ -43,7 +42,6 @@ function MenuHome() {
 				<CustomText style={styles.text} variant='subtitle3' color='secondary'>fandraisana</CustomText>
 			</View>
 		</View>
-
 	)
 }
 
@@ -51,9 +49,12 @@ const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'space-around',
 		alignItems: 'center',
-		height: 90,
+		height: 80,
 		borderTopLeftRadius: 32,
 		borderTopRightRadius: 32,
+		paddingHorizontal: 8,
+		paddingTop: 12,
+		zIndex :2,
 		...SHADOW.base1
 	},
 	wrapper: {
@@ -66,12 +67,12 @@ const styles = StyleSheet.create({
 	},
 	homeContainer: {
 		height: '100%', width: 90,
-		position : 'relative',
+		position: 'relative',
 	},
 	home: {
-		position : 'absolute',
-		top : -45,
-		gap: 16,
+		position: 'absolute',
+		top: -58,
+		gap: 12,
 		justifyContent: 'center'
 	},
 	circle: {

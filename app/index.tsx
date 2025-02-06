@@ -7,6 +7,7 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { Header } from "@/components/index-screen/Header";
 import { Body } from "@/components/index-screen/Body";
 import { Footer } from "@/components/Footer";
+import { CustomText } from "@/components/CustomText";
 
 
 export default function Index() {
@@ -22,7 +23,7 @@ export default function Index() {
 	}, [loaded]);
 
 	if (!loaded) {
-		return <View/>;
+		return <View />;
 	}
 
 
@@ -31,13 +32,8 @@ export default function Index() {
 			<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
 			<Header />
 			<Body />
-			<Footer/>
+			<Footer />
 		</CustomSafeAreaView>
 	);
 }
 
-const styles = StyleSheet.create({
-	text: {
-		fontFamily: 'audiowide'
-	}
-})
