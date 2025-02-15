@@ -4,7 +4,7 @@ import { BlurView } from "expo-blur";
 import { ScrollView, ScrollViewProps, StyleSheet, View } from "react-native";
 import { CustomText } from "../CustomText";
 import { RowView } from "../RowView";
-import { Item } from "./Item";
+import { ItemAllSong } from "./ItemAllSong";
 import { Category } from "./Category";
 import { BigLogo } from "./Logo";
 import { rgbaColor } from "@/tools/rgbaColor";
@@ -30,8 +30,8 @@ export function Body() {
 				<View style={[styles.allSong, { backgroundColor: colors.grayWhite }]}>
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 16 }}>Hira rehetra</CustomText>
 					<View style={{ borderColor: rgbaColor(colors.grayLight, 0.4) }} >
-						<Item title='tononkira' count={countSoung} icon='mic' />
-						<Item title='solfa' count={countPartition} icon='note' />
+						<ItemAllSong title='tononkira' count={countSoung} icon='mic' />
+						<ItemAllSong title='solfa' count={countPartition} icon='note' />
 					</View>
 				</View>
 				{/* Category */}

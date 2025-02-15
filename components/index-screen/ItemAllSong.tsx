@@ -11,10 +11,10 @@ type Props = {
 	count: number,
 	icon: keyof typeof Entypo.glyphMap
 }
-export function Item({ title, count, icon }: Props) {
+export function ItemAllSong({ title, count, icon }: Props) {
 	const colors = useThemeColor()
 	return (
-		<Link href={{ pathname: '/[listScreen]', params: { listScreen: title } }} asChild>
+		<Link href={{ pathname: '/list', params: { type: title } }} asChild>
 			<Pressable
 				android_ripple={{ color: rgbaColor(colors.grayLight, 0.3), foreground: true, }}
 			>

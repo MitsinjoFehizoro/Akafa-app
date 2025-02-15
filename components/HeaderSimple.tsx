@@ -27,7 +27,7 @@ export function HeaderSimple({ title }: Props) {
 }
 const styles = StyleSheet.create({
 	container: {
-		height: 72,
+		// height: 72,
 		alignItems: 'center',
 		paddingRight: PADDING.base,
 		paddingLeft : 8,
