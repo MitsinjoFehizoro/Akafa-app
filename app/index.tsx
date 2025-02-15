@@ -8,6 +8,7 @@ import { Header } from "@/components/index-screen/Header";
 import { Body } from "@/components/index-screen/Body";
 import { Footer } from "@/components/Footer";
 import { CustomText } from "@/components/CustomText";
+import { rgbaColor } from "@/tools/rgbaColor";
 
 
 export default function Index() {
@@ -25,7 +26,6 @@ export default function Index() {
 	if (!loaded) {
 		return <View />;
 	}
-
 
 	return (
 		<CustomSafeAreaView>

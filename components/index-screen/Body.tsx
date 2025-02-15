@@ -7,10 +7,15 @@ import { RowView } from "../RowView";
 import { Item } from "./Item";
 import { Category } from "./Category";
 import { BigLogo } from "./Logo";
+import { rgbaColor } from "@/tools/rgbaColor";
+import { DATASONGS } from "@/constants/DATASONGS";
 
-type Props = ScrollViewProps
 export function Body() {
 	const colors = useThemeColor()
+	//A modifier rehefa misy mis a jour
+	const countSoung = DATASONGS.length
+	const countPartition = DATASONGS.filter(s => s.partition.isPartition === true).length
+
 	return (
 		<View style={styles.body}>
 			<View style={styles.hihiraHoAnao}>
@@ -24,9 +29,9 @@ export function Body() {
 				{/* All Song */}
 				<View style={[styles.allSong, { backgroundColor: colors.grayWhite }]}>
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 16 }}>Hira rehetra</CustomText>
-					<View style={{ borderColor: colors.grayLightOpaque }} >
-						<Item title='Tononkira' count={128} icon='mic' />
-						<Item title='Solfa' count={110} icon='note' />
+					<View style={{ borderColor: rgbaColor(colors.grayLight, 0.4) }} >
+						<Item title='tononkira' count={countSoung} icon='mic' />
+						<Item title='solfa' count={countPartition} icon='note' />
 					</View>
 				</View>
 				{/* Category */}

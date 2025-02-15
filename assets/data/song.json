@@ -3,16 +3,21 @@
 	"lyrics": [
 		{
 			"key": "",
-			"value": ""
+			"value": [
+				""
+			]
 		},
 		{
 			"key": "",
-			"value": ""
+			"value": [
+				""
+			]
 		}
 	],
-	"parition": {
-		"is_partition": true,
-		"base_url": "@assets/data/partitions/"
+	"partition": {
+		"isPartition": true,
+		"url": "@assets/data/partitions/"
 	},
-	"author": "A/C : RAKOTOARIVELO Samson"
+	"author": "A/C : RAKOTOARIVELO Samson",
+	"type": [0]
 }

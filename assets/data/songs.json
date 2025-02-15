@@ -1,6 +1,6 @@
 [
 	{
-		"title": "4 m",
+		"title": "4 M",
 		"lyrics": [
 			{
 				"key": "",
@@ -12,15 +12,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AIZAN’NY LANITRA NO HISY ANAO",
+		"title": "Aizan'ny lanitra no hisy anao",
 		"lyrics": [
 			{
 				"key": "ref",
@@ -54,15 +54,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AMBOARAN-KIRA",
+		"title": "Amboaran-kira",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -114,15 +114,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AMPAHEREZO",
+		"title": "Ampaherezo",
 		"lyrics": [
 			{
 				"key": "ref",
@@ -152,15 +152,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "Andravoahangy Fivavahana",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AMPIANARO AHO TOMPO",
+		"title": "Ampianaro aho Tompo",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -205,15 +205,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AMPIANARO HAHAY MINO",
+		"title": "Ampianaro hahay mino",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -249,15 +249,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "ANDRO IRAY",
+		"title": "Andro iray",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -308,15 +308,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "ANDROM-PAMONJENA",
+		"title": "Androm-pamonjena",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -356,15 +356,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "ANIO SY HO MANDRAKIZAY",
+		"title": "Anio sy ho mandrakizay",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -402,15 +402,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "ARY AOKA ISIKA HIFAMPANDINIKA HAMPANDROSO NY FITIAVANA",
+		"title": "Ary aoka isika hifampandinika hampandroso ny fitiavana",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -458,15 +458,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "ARY AOKA JEHOVAH HANAO NY SITRAPONY",
+		"title": "Ary aoka Jehovah hanao ny sitrapony",
 		"lyrics": [
 			{
 				"key": "ref",
@@ -496,15 +496,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AVIA JESOSY O!",
+		"title": "Avia Jesosy o!",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -557,15 +557,15 @@
 				]
 			}
 		],
-		"parition": {
-			"is_partition": true,
-			"base_url": "@assets/data/partitions/"
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
 		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AVIA RY ONDRIKO",
+		"title": "Avia ry ondriko",
 		"lyrics": [
 			{
 				"key": "break",
@@ -599,11 +599,15 @@
 				]
 			}
 		],
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
+		},
 		"author": "A/C : Georges B.",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AVOTRA IHANY NY TANY",
+		"title": "Avotra ihany ny tany",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -641,11 +645,15 @@
 				]
 			}
 		],
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
+		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "AZA MENATRA",
+		"title": "Aza menatra ny ho vavolombelon'ny Tompo",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -713,11 +721,15 @@
 				]
 			}
 		],
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
+		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "BETLEHEMA",
+		"title": "Betlehema",
 		"lyrics": [
 			{
 				"key": "break",
@@ -762,11 +774,15 @@
 				]
 			}
 		],
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
+		},
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": []
+		"type": [0]
 	},
 	{
-		"title": "CANTICORUM",
+		"title": "Canticorun",
 		"lyrics": [
 			{
 				"key": "1.",
@@ -801,8 +817,11 @@
 				]
 			}
 		],
+		"partition": {
+			"isPartition": true,
+			"url": "@assets/data/partitions/"
+		},
 		"author": "A/C : Haendel",
-		"type": []
+		"type": [0]
 	}
-	
 ]

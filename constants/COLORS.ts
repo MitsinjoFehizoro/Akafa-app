@@ -4,13 +4,13 @@ export const COLORS = {
 		secondary: '#00377C',
 		grayWhite: '#FCFCFF',
 		grayLight: '#BABABA',
-		grayLightOpaque: 'rgba(186, 186, 186, 0.4)'
+		grayDark : '#252728'
 	},
 	dark: {
 		primary: '#DD032B',
 		secondary: '#00377C',
 		grayWhite: '#FCFCFF',
 		grayLight: '#BABABA',
-		grayLightOpaque: 'rgba(186, 186, 186, 0.4)'
+		grayDark : '#252728'
 	}
 }
