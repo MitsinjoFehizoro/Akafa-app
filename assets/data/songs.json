@@ -1,0 +1,808 @@
+[
+	{
+		"title": "4 m",
+		"lyrics": [
+			{
+				"key": "",
+				"value": [
+					"Miorina amin’ny finoana",
+					"Mivelona amin’ny finoana",
+					"Mafy amin’ny finoana",
+					"Manapariaka amin’ny finoana"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AIZAN’NY LANITRA NO HISY ANAO",
+		"lyrics": [
+			{
+				"key": "ref",
+				"value": [
+					"Moa ve mbola miaina ao am-ponao ihany Jesoa",
+					"Moa ve mbola manan-toerana ao aminao",
+					"Ilay fihavanana mamy efa nisy hatrizay",
+					"Moa ve mbola misy sa tsy misy intsony",
+					"Fa sambatra loatra ry lahy ‘zay madio am-po",
+					"He sambatr’ireny fa manana Tompo Tsitoha",
+					"Ka indro hita soritra eny amin’ny fiainany",
+					"Ilay fitiavana ny rahalahy"
+				]
+			},
+			{
+				"key": "1.",
+				"value": [
+					"Fa raha mbola misy fialonana ihany ao am-po",
+					"Na fankahalana ny namanao maro hafa koa",
+					"Reo toetra tsy mendrika mety handoto ny fo",
+					"Tsy mahatamana ‘lay Tompo Tsitoha"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Tandremo sao ratsy fitana ary ka dia ho voa",
+					"Satana sy ny aminy mantsy dia miandry ao ivoho",
+					"Diniho sy mba eritrereto ny fiainanao",
+					"Koa aizan’ny lanitra no misy anao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AMBOARAN-KIRA",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"O! Mihirà, miderà, mankalazà",
+					"Manadrata feo hidera ny Ray",
+					"Redony hatrany ny hira sy ny feo",
+					"Ho santatry ny any an-danitra"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Miraisa feo torio Jesoa Tomponao",
+					"‘Zao tontolo ‘zao mbola tsy mandre",
+					"‘Zany no ahafantarana anareo",
+					"Fa mianatry Kristy ianareo"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Amboaran-kira soa no asandratry ny fo",
+					"Ka ny hira fiderana Anao ry Tompo soa",
+					"Hosana haleloiah no asandratray",
+					"Ho Anao mandrakizay mandrakizay",
+					"Voninahitra anie ho Anao ry Ray Tsitoha",
+					"Saotra dera Tompo ô! No omenay ho Anao",
+					"Hosana haleloiah no asandratray",
+					"Ho Anao mandrakizay mandrakizay"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Faly ny fo he ravoravo tokoa",
+					"Midera ny hatsaranao Jesoa",
+					"Mizara hatrany ilay fitiavanao",
+					"Mba ho anay isanandro izao"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Fahasoavan-dehibe ho anay",
+					"Afaka midera Anao o Ry Ray",
+					"Ka ny andro sisa mbola iainanay ety",
+					"Fenoinay hira hatrety ka hatrery"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AMPAHEREZO",
+		"lyrics": [
+			{
+				"key": "ref",
+				"value": [
+					"Tompo o! Ampaherezo ‘zahay",
+					"Amin’ny ady atrehinay ety",
+					"Ny herinao irery no iankinanay",
+					"Ho mpandresy tokoa izahay"
+				]
+			},
+			{
+				"key": "1.",
+				"value": [
+					"Indraindray anie ‘zahay mora kivy tokoa",
+					"Raha sendra ka mafy ny manjo",
+					"(Tompo o!) Tompo o! Aza avela ho irery",
+					"Tantanonao sao very ety ny zanakao"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"O! Ampaherezonao mba tsy hitanondrika",
+					"Fa hitraka sy hibanjina",
+					"(Tompo o!) Tompo o! Aza avela ho irery",
+					"Tantanonao sao very ety ny zanakao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "Andravoahangy Fivavahana",
+		"type": []
+	},
+	{
+		"title": "AMPIANARO AHO TOMPO",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Ampianaro aho Tompo mba hanao ny sitrakao",
+					"Hahafantarako fa zava-poana ‘zao rehetra izao",
+					"Maro loatra ireo fakam-panahy misakana ny dia",
+					"Tsy hatanteraka ny Anao ry Tompo tia (ry Tompo tia)",
+					"Nokendrenao mba ho tonga olombanona aho ry Ray",
+					"Nefa noho ny hadalako indro aho mangahiahy"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Ny finoako Tompo ô! Aoreno ho marina",
+					"Mba tsy hisalasala intsony ny Aminao",
+					"Ka tsy hisy hahasakana ahy tsy hanantona Anao",
+					"N’inona e! hanjo ny fianako ety (an-tany ety)"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Ampianaro aho ry Tompo mba ho resy lahatra",
+					"Fa ny teninao irery no hany afaka hamaha",
+					"‘Zany ahiahim-poko olana mangeja ahy",
+					"Tsy ahitako izay tavanao ry Ray (ny tavanao)",
+					"Aza avela ho sondriana hanamari-tena aho",
+					"Fa avereno ahalala izany voninahitrao"
+				]
+			},
+			{
+				"key": "3.",
+				"value": [
+					"Ampianaro aho ry Tompo ho feno fandeferana",
+					"Ka hanindry ny ambo-po mitoetra na miserana",
+					"Tsy hisaina valifaty na hanao an-dolom-po",
+					"Fa hivavaka hadio ry Tompo soa (ry Tompo soa)",
+					"Ka ho tia ‘reo namako mihoatra noho ny tenako aho",
+					"‘Reo mitsanga-ko fahavalo apetrako eo an-tananao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AMPIANARO HAHAY MINO",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Nankafy nankamamy ireo rendrarendran’ny tany",
+					"Toa tsy nisaina akory izay iafaran’izato dia",
+					"Fa dia niazakazaka niroso lalina hatrany ka remdremana tao",
+					"Nihosombovoka fa nania",
+					"Tambitamby natao anatranatra koa tsy nahoako",
+					"Fa nanidy ny fo ka nandà ny hampian-trano Anao Tompo ô!",
+					"Feo mibitsika mora no hany sisa mba tsaroako",
+					"Hay Ianao mbola teo nanatsotra ny tananao hanafaka ahy"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Ô! Menatra Anao aho fa ninia nanadino",
+					"Dia nanao tsinotsinona nanosihosy an’ireo didinao",
+					"Mitalao mafy aho ampianaro hahay mino",
+					"Fa ianao ‘lay Mpamonjy Mpanafaka Mpanavao"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Tsy nahatsapa ny hasarobidin’ny antso hatramin’izay aho",
+					"Hany ka na dia ny fahavelomako aza dia nataoko tsinotsinona",
+					"Fa nitoky nankamamy iny rehak’izao tontolo izao",
+					"Ankehitriny, mahatsapa aho anefa",
+					"Fa ianao indray no toa manambitamby ity variana mba hiverin-dalana",
+					"Hiverina aminao ry Mpamonjy, Mpanafaka, Mpanavao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "ANDRO IRAY",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Andro iray tsy ho hohadinoina",
+					"‘Zao andro anio izao",
+					"Amponay tsy hay vonoina",
+					"Tsaroana foana Ianao",
+					"Ianao Jesoa manan-daza",
+					"Hamony izao tontolo izao",
+					"Ankalazaina Ianao ‘lay Mesia",
+					"Nanetry tena ho anay ety"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Dera ry Ray no omenay indro asandratra izao",
+					"Ka ny hira sy ny hoby no entina mandray Anao",
+					"Haleloia e! Hosana voninahitra anie",
+					"Jesoa ho Anao ‘zay Mpamonjy sy Mpanjaka lehibe"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Misy ireo tsy mahalala",
+					"‘Zao andro anio izao",
+					"Ao koa ‘reo misalasala",
+					"Tsy mbola mino Anao",
+					"Andro iray ho ahy sy ho anao ‘zao",
+					"Tsy ho fahazarana intsony anie",
+					"Fa ankalaza sy handray am-po",
+					"Ilay Mpamony tena Tsitoha"
+				]
+			},
+			{
+				"key": "3.",
+				"value": [
+					"Teraka ilay Mpanjaka",
+					"Izy no Jesoa Mesia",
+					"Fanambin’ny Ray ho antsika",
+					"Ho famonjena ny ety",
+					"Koa aza mihemotra intsony",
+					"Fa ambarao sy ankalazao",
+					"‘Ty andro izay manandaza tokoa",
+					"Tena fitiavana ho ahy sy ho Anao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "ANDROM-PAMONJENA",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Andeha ankalaza ity andro soa",
+					"Hanandratra avo ny hosana haleloia",
+					"Androm-pamonjena ho anao sy ho ahy",
+					"Tsy manam-paharoa izao"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Haleloia (haleloia) haleloia (hosana)",
+					"Derainay Hianao e! (dera ho Anao)",
+					"Hianao r’ilay Mesia (ry ilay Mesia)",
+					"Fa ny voninahitra anie",
+					"Hoan’Andriamanitra avo indrindra (ho an’Andriamanitra)"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Avia tsenao ka drao sy ankalazao",
+					"Fa ny Mesia no indro teraka izao",
+					"Famonjena anie no entiny ho anao",
+					"Ka aiza aiza ianao izao"
+				]
+			},
+			{
+				"key": "3.",
+				"value": [
+					"Andro fifaliana izao koa mifalia",
+					"Andro fihobiana izao ka mihobia",
+					"Androm-pamonjena ho anao sy ho ahy",
+					"Tsy manam-paharoa izao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "ANIO SY HO MANDRAKIZAY",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Anio no andro anaovana indray",
+					"Ny fanolorantena ho Anao ry Ray",
+					"Manaiky ny hanao ny asanao an-tsitrapo tokoa",
+					"Ka hanetry tena ihany koa",
+					"Anio na misy fitsapana manjo ahy",
+					"Dia sanatria ny hihemotra, hiova fo",
+					"Fa efa nekeko izao ry Ray Tsitoha",
+					"Ianao no ho manda fiarovako"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Atolotro ny tenako sy ny ankohonako",
+					"Hanompo an’i Jehovah raha mbola miaina koa",
+					"Tsy hisy ho reharehako afa tsy Ianao",
+					"Ianao no Tompoko anio sy ho mandrakizay"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Anio raha mbola misy azo atao",
+					"Iezaka aho hanao ireo asanao",
+					"‘Reo andro sy ny fotoana maro izay nomenao",
+					"Ho entiko anompoana Anao Ray o!",
+					"Anio aho mahatoky ny herinao",
+					"Hitantana ahy tsy ho reraka am-panahy",
+					"Handray ka hizara ilay fitiavanao Jesoa",
+					"Fa ampy ahy ny fahasoavanao"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "ARY AOKA ISIKA HIFAMPANDINIKA HAMPANDROSO NY FITIAVANA",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"O! Mitsanagana ianao mandehana faingana",
+					"‘Zao no ora ilana anao",
+					"Andeha hizara ny tsara tsy ho tara hanambara",
+					"Ho an’izao tontolo izao",
+					"‘Lay toriteny mahasoa, ny fahamarinan’i Jesoa",
+					"Mivonona, mandrosoa ry tanora mijoroa"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Ka ny tarigetra soa sy tsara indrindra",
+					"Ho tonga fianarana amin’ny asa sy famindra",
+					"Ho filazantsara soa, tanoran’i Jesoa",
+					"Tsy hirehareha fa hitambatra iray",
+					"Mba ho voninahitry ny Ray",
+					"Ary aoka isika hifampandinika",
+					"Hampandroso ny fitiavana"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"‘Reo fanekena niarahana nanao hatrizay",
+					"Dia ho hamafisina eto indray",
+					"Hanolotena hatrany hatrany ka hiasa",
+					"Ho an’ny Ray mandrakizay",
+					"Na inona inona manjo tsy hihemotra tsy hiova fo",
+					"Sanatria ry Tompo soa tsy hivadika tokoa"
+				]
+			},
+			{
+				"key": "3.",
+				"value": [
+					"Avaozy hatrany ny saina, ny fo, ny finoana",
+					"Mba ho mendrika tokoa",
+					"Izay rehetra kasaina hatao dia hankino",
+					"Amin’ny Ray Tsitoha",
+					"Fanantenana vaovao sy fandresena ho anao",
+					"Raha katsahinao anie ‘lay fitiavan-dehibe"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "ARY AOKA JEHOVAH HANAO NY SITRAPONY",
+		"lyrics": [
+			{
+				"key": "ref",
+				"value": [
+					"Ary aoka Jehovah hanao ny sitrapony",
+					"Fa tompo-pahefana Izy amin’ny olona antsoiny",
+					"Mahatoky ka ankalazao, ekeo sy ankasitrao",
+					"Fa noho ny fahasoavan’i Ray dia mpandresy ianao"
+				]
+			},
+			{
+				"key": "1.",
+				"value": [
+					"Tsy vita atreo akory ny asa raha manombana ireo lasa",
+					"Tsy sanatria hirehareha fa hoe nahavita be",
+					"Fa mbola maro ny asa miandry ny namana, ny zoky, zandry",
+					"Samy miandry manantena ireo, mila anao ny firenena"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Tsy haitraitra na rendrarendra ny maha olom-boafidy",
+					"Ny fanoloran-tenanao tsy ho voavidy",
+					"‘Reo fisendrana, tsy fisina, famoizana ireo olon-tiana",
+					"Tebiteby adin-tsaina mila haningotra ny aina"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AVIA JESOSY O!",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Fa tebitevy lava hatrany",
+					"Korontan-dava etsy sy eroa",
+					"Tsy azo hodian-tsy hita izany",
+					"Manoina sy mandratra ny fo",
+					"Mahantra ny firenena",
+					"Mijaly sy ory izahay",
+					"Tsy hita intsony ilay fahendrena",
+					"Nandrianina hatramin’izay"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Ny fahamarinana tsy misy",
+					"Fitiavan-tena no hita indrisy",
+					"Tsy misy tahotra intsony",
+					"Fitiavam-bola no ambony",
+					"Mahantra sy mahonena",
+					"Ianao r’lay Gasikara",
+					"Tsy hita intsony ilay fahendrena",
+					"Nandrianina hatramin’izay"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Avia Jesosy ô ! Meteza Ianao jereo ‘zahay",
+					"Ry Tomponay Tsitoha",
+					"Vonjeo re ny taninay",
+					"Anaro izahay hitodika aminao",
+					"Tsy manana an’iza iantorahana",
+					"Afa-tsy any Aminao"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Isika izao no antenaina",
+					"Isika izao no andrandraina",
+					"Hijoro ka hamerina indray",
+					"Hifankatia hitambatra iray",
+					"Hiasa hanetry tena",
+					"Hiverina hifona amin-dRay",
+					"Hokatsahintsika ilay fahendrena",
+					"Nampiavaka antsika hatrizay"
+				]
+			}
+		],
+		"parition": {
+			"is_partition": true,
+			"base_url": "@assets/data/partitions/"
+		},
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AVIA RY ONDRIKO",
+		"lyrics": [
+			{
+				"key": "break",
+				"value": [
+					"Avia avia ry ondriko very, ry ondriko very",
+					"Avia avia etsy ho fahanako hianao"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Mitady anao ela aho, taiza moa hianao?",
+					"Nikaroka anao ela aho, moa tia ahy hianao?"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Ry ondriko ô! Tsy foko hianao",
+					"Ry ondriko ô! Lalaiko tokoa",
+					"Satria efa namoizako ny tenako, aiko koa"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Ry ondriko ô! Tsy foiko hianao",
+					"Ry ondriko ô! lalaiko tokoa",
+					"Fa Jesosy Tompo mpiandry anao",
+					"No efa miantso ny ondrin’izao"
+				]
+			}
+		],
+		"author": "A/C : Georges B.",
+		"type": []
+	},
+	{
+		"title": "AVOTRA IHANY NY TANY",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"O! Mifalia sy miravoa f’indro tanteraka tokoa",
+					"‘Zay nolazain’Isaia mpaminany fa ho avotra ihany ny tany",
+					"Teraka mantsy ‘lay zaza Jesoa Mpanjaka malaza",
+					"Ka ho vonjena ireo firenena mino sy mandray Azy",
+					"F’izy no ilay Mesia tonga ho antsika ety",
+					"Fa Tompon’ny tompo, Mpanjakan’ny mpanjaka",
+					"Jesoa ‘lay Mahery hamonjy ‘zay very",
+					"Nanetry tena mba hamonjy anao sy ho ahy"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Fa ny harenan’ny tany tsy mahavonjy anao izany",
+					"Ny fitiavan’i Jesoa tsy miato, antoka zato isanjato",
+					"Haleloiah e! Hosana io ‘lay fampanantenana",
+					"Hobio tsenao ilay Mesia faingana re avia!"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Ankalazaina eran-tany izany noely izany",
+					"Fa andro tokana miavaka tsara voarakitra soa an-tantara",
+					"Tsy ny fiangonana ihany no mahatsiaro an’izany",
+					"Samy mifety ka manao izay mety mifaly ary koa mikorana",
+					"‘Zao no mba tadidio ho anao mihaino io",
+					"Ny fitafiana soa ivelany avokoa",
+					"Tsy ho fahazarana hatrany no ankalazana an’izany",
+					"Fa tena ny ao am-po no handray ‘lay Tsitoha"
+				]
+			}
+		],
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "AZA MENATRA",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Nirahin’ny Tompo izaho sy ianao",
+					"Hamita ny asany, hamita ny asany aty",
+					"Dia fifanarahana tsotra sy matotra tsara no natao no niarahana nanao",
+					"Ka an-tsitrapo ary no nanekenao, Ka niteny hoe :",
+					"“ Inty aho Tompo ô ! IRAHO ”",
+					"Tsy ho ataoko olana raha ny fotoana n’aiza na aiza aleha",
+					"Dia vonona aho ny andeha ! andeha !"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Nandeha avy hatrany tsy nangataka andro na hoe aoka aloha",
+					"Satria nafana fo tokoa",
+					"Tsy nieritreritra izay ho tambiny na ho valisoa",
+					"Tena izany tokoa ve moa ?",
+					"Nosedraina olana maro sy mafy teny",
+					"Ny fiainanao kanefa tsy nanda ianao",
+					"Fa Andriamanitra dia mahalala",
+					"Izay tokony sy tena mahasoa anao"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Manontany anao ilay naniraka anao",
+					"Hoe aiza ireo asa vita hatraizay",
+					"‘Reo talenta mafo efa nomeny anao",
+					"Moa efa nampiasainao avokoa",
+					"Tonga ny ora fotoana izao",
+					"Hanombanana ny asanao",
+					"Koa aza menatra fa mijoroa",
+					"Ho vavolombelon’ny Tomponao"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Nandeha nizara ary koa nanambara",
+					"Ilay teny soa, ‘lay teny mahasoa tokoa !",
+					"Ka dia lasa ihany ary nandroso hatrany",
+					"Tsy nihemotra na inona na inona nanjo",
+					"Itondra hazavana sy fahatsara",
+					"Hoan’izao tontolo izao no tena ilana anao",
+					"Ka ho fianara ho an’ny mino",
+					"Izaho sy ianao eo amin’ny fiainantsika ety"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Raha nanao tsara ianao dia voarakitra",
+					"Any an-danitra ‘reo asa tsara vitanao",
+					"Ny ratsy rehetra ko dia tadidio",
+					"Fa voasoratra io voasoratra avokoa ireo",
+					"Ny Tompo mandinika hatrany ny",
+					"fiainanao sanandro izao",
+					"Sy izay rehetra mombanao",
+					"Mbola tsy mitsahatra ny manoro anao",
+					"Ny lalan-tsara tokony ho anao Izy"
+				]
+			}
+		],
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "BETLEHEMA",
+		"lyrics": [
+			{
+				"key": "break",
+				"value": [
+					"Betlehema tanàna kely nefa manan-daza",
+					"Nahaterahan’ilay Jesosy zaza",
+					"Mpanjakan’ny mpanjaka sy tompon’ny Tompo",
+					"Mpamonjy teraka ho antsika Jesoa",
+					"Tranon’omby fa tsy mba tranom-bahiny e !",
+					"No nandray ‘lay zanak’Andriamanitra Ray",
+					"Ny fanetretena no lamba itafiany",
+					"Maripitiavana mandrakizay"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Tsy izay voninahitra na ny rehareha",
+					"No nahatongavan’Izy Tompo tety",
+					"Fa ny famonjena izao tontolo izao",
+					"Famonjena izao tontolo izao"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Izy no Mesia nambaran’ireo anjely",
+					"Jesoa Mesia, Jesoa Izy no Mesia",
+					"‘Lay tokana hamonjy izao tontolo izao",
+					"Hamonjy izao tontolo izao"
+				]
+			},
+			{
+				"key": "break",
+				"value": [
+					"Haleloia hosana ho Anao",
+					"Mihoby Anao izao rehetra izao",
+					"Koa asandrato avo izao ny hiranao",
+					"Hobio sy derao Jesoa Mpamonjinao",
+					"Miravoravoa fa tanteraka ihany",
+					"Jesoa tonga amonjy ny tany"
+				]
+			}
+		],
+		"author": "A/C : RAKOTOARIVELO Samson",
+		"type": []
+	},
+	{
+		"title": "CANTICORUM",
+		"lyrics": [
+			{
+				"key": "1.",
+				"value": [
+					"Canticorum jubiloRegi magno psallite",
+					"Jam resultet musicaUnda, tellus, sidera"
+				]
+			},
+			{
+				"key": "ref",
+				"value": [
+					"Anao ny dera ry Zanaky ny Ray",
+					"Anao ny fandresena ry Mpanjakanay"
+				]
+			},
+			{
+				"key": "2.",
+				"value": [
+					"Anao ny dera ry Zanaky ny Ray",
+					"Anao ny fandresena ry Mpanjakanay",
+					"Ny fasana nivoha noho ny herinao",
+					"Ny Anaranao Tsitoha tsy voatana tao"
+				]
+			},
+			{
+				"key": "3.",
+				"value": [
+					"He, ravo aho Izy no santatra",
+					"Izaho koa hifoha mba ho sambatra",
+					"Ny fandresen’i Jesoa lovako tokoa",
+					"Ny anarany Tsitoha hanangana ahy koa"
+				]
+			}
+		],
+		"author": "A/C : Haendel",
+		"type": []
+	}
+	
+]

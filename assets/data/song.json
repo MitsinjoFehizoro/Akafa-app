@@ -1,0 +1,18 @@
+{
+	"title": "",
+	"lyrics": [
+		{
+			"key": "",
+			"value": ""
+		},
+		{
+			"key": "",
+			"value": ""
+		}
+	],
+	"parition": {
+		"is_partition": true,
+		"base_url": "@assets/data/partitions/"
+	},
+	"author": "A/C : RAKOTOARIVELO Samson"
+}
