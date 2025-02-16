@@ -2,6 +2,7 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { CustomText } from "@/components/CustomText";
 import { Footer } from "@/components/Footer";
 import { HeaderSimple } from "@/components/HeaderSimple";
+import { BigLogo } from "@/components/index-screen/Logo";
 import { ListItem } from "@/components/list-screen/ListItem";
 import { SearchBar } from "@/components/list-screen/SearchBar";
 import { DATASONGS } from "@/constants/DATASONGS";
@@ -11,9 +12,9 @@ import { rgbaColor } from "@/tools/rgbaColor";
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Keyboard, StyleSheet, Text, View } from "react-native";
 
-export default function List () {
+export default function List() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
 	const [searchValue, setSearchValue] = useState('')
@@ -21,19 +22,44 @@ export default function List () {
 	useEffect(() => {
 		setSongs(DATASONGS.filter(s => s.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())))
 	}, [searchValue])
+	const [isShowKeyboard, setIsShowKeyboard] = useState(false)
+	useEffect(() => {
+		const keyboardDidShowListener = Keyboard.addListener(
+			"keyboardDidShow",
+			() => {
+				setIsShowKeyboard(true);
+			}
+		);
+
+		const keyboardDidHideListener = Keyboard.addListener(
+			"keyboardDidHide",
+			() => {
+				setIsShowKeyboard(false);
+			}
+		);
+
+		return () => {
+			keyboardDidShowListener.remove();
+			keyboardDidHideListener.remove();
+		};
+	}, [])
 	return (
 		<CustomSafeAreaView>
 			<View>
 				<HeaderSimple title={params.type.toString()} />
 				<View style={[styles.search, { backgroundColor: colors.primary }]}>
-					<SearchBar value={searchValue} onChange={setSearchValue} />
+					<SearchBar
+						value={searchValue}
+						onChange={setSearchValue}
+					/>
 				</View>
 			</View>
+
 			{
 				songs.length !== 0 ? (
 					<FlatList
 						data={songs}
-						keyExtractor={(item) => item.title}
+						keyExtractor={(_, index) => index.toString()}
 						renderItem={({ item }) =>
 							<ListItem song={item} type={params.type.toString()} />
 						}
@@ -45,7 +71,12 @@ export default function List () {
 					</View>
 				)
 			}
-			<Footer />
+			{
+				!isShowKeyboard && (
+					<Footer />
+				)
+			}
+
 		</CustomSafeAreaView>
 
 	)
@@ -54,12 +85,13 @@ export default function List () {
 const styles = StyleSheet.create({
 	search: {
 		paddingHorizontal: PADDING.base,
-		paddingBottom: 24,
-		paddingTop: 16
+		paddingBottom: 16,
+		paddingTop: 8
 	},
 	breakSearch: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
-	}
+	},
+
 })

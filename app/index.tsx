@@ -7,9 +7,6 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { Header } from "@/components/index-screen/Header";
 import { Body } from "@/components/index-screen/Body";
 import { Footer } from "@/components/Footer";
-import { CustomText } from "@/components/CustomText";
-import { rgbaColor } from "@/tools/rgbaColor";
-
 
 export default function Index() {
 	const colors = useThemeColor()

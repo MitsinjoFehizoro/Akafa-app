@@ -1,13 +1,13 @@
 import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
+import { HeaderSimple } from "@/components/HeaderSimple";
 import { useLocalSearchParams } from "expo-router";
 import { Text } from "react-native";
 
-export default function Song (){
+export default function Parition() {
 	const params = useLocalSearchParams()
 	return (
 		<CustomSafeAreaView>
-			<Text>{params.songTitle.toString()}</Text>
-			<Text>{params.type.toString()}</Text>
+			<HeaderSimple title={params.type.toString()} />
 		</CustomSafeAreaView>
 	)
 }

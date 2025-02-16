@@ -15,17 +15,17 @@ type Props = {
 export function ListItem({ type, song }: Props) {
 	const colors = useThemeColor()
 	return (
-		<Link href={{ pathname: '/song', params: { songTitle: song.title, type: type } }} asChild>
+		<Link href={{ pathname: type === 'tononkira' ? '/lyrics' : '/partition', params: { songTitle: song.title, type: type } }} asChild >
 			<Pressable
 				style={{ borderRadius: 8 }}
 				android_ripple={{ color: rgbaColor(colors.grayLight, 0.3), foreground: true }}
 			>
 				<RowView style={[styles.row, { backgroundColor: colors.grayWhite }]}>
-					<CustomText color='grayDark'>{song.title}</CustomText>
+					<CustomText style={{width : '95%'}} numberOfLines={1} ellipsizeMode='tail' color='grayDark'>{song.title}</CustomText>
 					<Entypo name='dots-three-vertical' size={8} color={colors.grayDark} />
 				</RowView>
 			</Pressable>
-		</Link>
+		</Link >
 	)
 }
 const styles = StyleSheet.create({
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 		height: 36,
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		...SHADOW.base1,
+		...SHADOW.base2,
 		paddingLeft: 16,
 		paddingRight: 12,
 		borderRadius: 8

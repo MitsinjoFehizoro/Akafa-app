@@ -16,7 +16,7 @@ export function Category({ icon, title }: Props) {
 			<View style={[styles.wrapper, { backgroundColor: colors.grayWhite }]}>
 				<Entypo name={icon} size={16} color={colors.primary} />
 			</View>
-			<CustomText style={styles.title} variant='body1' color='secondary' >{title}</CustomText>
+			<CustomText style={styles.title} variant='body2' color='secondary' >{title}</CustomText>
 		</View>
 	)
 }
@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
 		gap: 8,
-		width : 72
+		width: 72
 	},
 	wrapper: {
 		justifyContent: 'center',
 		alignItems: 'center',
 		width: 60, height: 60,
-		borderRadius : 16,
+		borderRadius: 16,
 		...SHADOW.base2
 	},
 	title: {

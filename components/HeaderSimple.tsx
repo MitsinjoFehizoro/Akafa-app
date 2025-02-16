@@ -21,13 +21,13 @@ export function HeaderSimple({ title }: Props) {
 			>
 				<Entypo name='chevron-left' size={24} color={colors.grayWhite} />
 			</Pressable>
-			<CustomText style={{ textTransform: 'capitalize', marginTop: 3 }} variant='title2' color='grayWhite' >{title}</CustomText>
+			<CustomText style={{ textTransform: 'capitalize', marginTop: 5 }} variant='title2' color='grayWhite' >{title}</CustomText>
 		</RowView>
 	)
 }
 const styles = StyleSheet.create({
 	container: {
-		// height: 72,
+		height: 56,
 		alignItems: 'center',
 		paddingRight: PADDING.base,
 		paddingLeft : 8,
