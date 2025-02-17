@@ -3,37 +3,32 @@ import { Asset } from 'expo-asset'
 import * as FileSystem from "expo-file-system";
 import JSZip from 'jszip';
 import { useEffect, useState } from 'react';
+import songJson from '../assets/data/songs.json'
 
 export const useLoadData = () => {
-	const [loadDataState, setLoadDataState] = useState({ loadSong: false, loadPartition: false })
+	const [dataLoaded, setDataLoaded] = useState({ song: false, partition: false })
 
 	const loadSongJson = async () => {
 		console.log('Load song json.')
+
 		try {
-			setLoadDataState({ ...loadDataState, loadSong: true })
-			const songJson = Asset.fromModule(require('@/assets/data/songs.json'))
 			const songDirectory = FileSystem.documentDirectory + 'songs/'
 			const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
 			if (infoSongDirectory.exists) {
 				return console.log('Song json alredy loaded.')
 			}
-			await songJson.downloadAsync()
-			await FileSystem.makeDirectoryAsync(songDirectory, { intermediates: true })
-			await FileSystem.copyAsync({
-				from: songJson.localUri!,
-				to: songDirectory + 'songs.json'
-			})
+			await FileSystem.makeDirectoryAsync(songDirectory)
+			await FileSystem.writeAsStringAsync(songDirectory + 'songs.json', JSON.stringify(songJson))
 			console.log('Song json loaded with success.')
 		} catch (error) {
 			console.error('Error of loaded song json : ', error)
 		} finally {
-			setLoadDataState({ ...loadDataState, loadSong: false })
+			setDataLoaded({ ...dataLoaded, song: true })
 		}
 	}
 	const loadPartitions = async () => {
 		console.log('Load partitions.')
 		try {
-			setLoadDataState({ ...loadDataState, loadPartition: false })
 			const partitionArchive = Asset.fromModule(require('@/assets/data/partitions.zip'))
 			const partitionDirectory = FileSystem.documentDirectory + 'partitions/'
 			const infoPartitionDirectory = await FileSystem.getInfoAsync(partitionDirectory)
@@ -61,14 +56,36 @@ export const useLoadData = () => {
 		} catch (error) {
 			console.error('Error of loaded partitions : ', error)
 		} finally {
-			setLoadDataState({ ...loadDataState, loadPartition: false })
+			setDataLoaded({ ...dataLoaded, partition: true })
 		}
 	}
+
+	const clearFileSystem = async (directoryUri: string) => {
+		try {
+			const files = await FileSystem.readDirectoryAsync(directoryUri);
+			console.log('Suppression totale de FileSytem.documentDirectory', files.length)
+			for (const file of files) {
+				const fileInfo = await FileSystem.getInfoAsync(file)
+				const fileUri = directoryUri + file
+				if (fileInfo.isDirectory) {
+					await clearFileSystem(fileUri)
+				} else {
+					await FileSystem.deleteAsync(fileUri);
+				}
+			}
+			const newFiles = await FileSystem.readDirectoryAsync(directoryUri);
+			console.log('Reussite de la suppression totale de FileSytem.documentDirectory', newFiles.length)
+		} catch (error) {
+			console.log('Erreur de la suppression totale de FileSytem.documentDirectory', error)
+		}
+	}
+
 	useEffect(() => {
+		// clearFileSystem(FileSystem.documentDirectory!)
 		loadSongJson()
 		loadPartitions()
 	}, [])
 	return {
-		loadDataState
+		dataLoaded
 	}
 }

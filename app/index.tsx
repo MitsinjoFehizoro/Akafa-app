@@ -11,7 +11,7 @@ import { useLoadData } from "@/hooks/useLoadData";
 
 export default function Index() {
 	const colors = useThemeColor()
-	const { loadDataState } = useLoadData()
+	const { dataLoaded } = useLoadData()
 
 	const [loaded] = useFonts({
 		'audiowide': require('@/assets/fonts/Audiowide-Regular.ttf'),
@@ -19,9 +19,9 @@ export default function Index() {
 	})
 
 	useEffect(() => {
-		if (loaded) SplashScreen.hideAsync();
+		if (loaded && dataLoaded.song && dataLoaded.partition) SplashScreen.hideAsync();
 		else SplashScreen.preventAutoHideAsync()
-	}, [loaded, loadDataState]);
+	}, [loaded, dataLoaded]);
 
 	if (!loaded) {
 		return <View />;

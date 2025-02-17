@@ -8,27 +8,6 @@ import { PADDING } from "@/constants/PADDING";
 
 export default function Partition() {
 	const params = useLocalSearchParams()
-
-	const clearFileSystem = async (directoryUri: string) => {
-		try {
-			const files = await FileSystem.readDirectoryAsync(directoryUri);
-			console.log('Suppression totale de FileSytem.documentDirectory', files.length)
-			for (const file of files) {
-				const fileInfo = await FileSystem.getInfoAsync(file)
-				const fileUri = directoryUri + file
-				if (fileInfo.isDirectory) {
-					await clearFileSystem(fileUri)
-				} else {
-					await FileSystem.deleteAsync(fileUri);
-				}
-			}
-			const newFiles = await FileSystem.readDirectoryAsync(directoryUri);
-			console.log('Reussite de la suppression totale de FileSytem.documentDirectory', newFiles.length)
-		} catch (error) {
-			console.log('Erreur de la suppression totale de FileSytem.documentDirectory', error)
-		}
-	}
-
 	const songPartiton = params.songTitle.toString().toLocaleLowerCase().replaceAll(' ', '_') + '.pdf'
 	const partitionUrl = `${FileSystem.documentDirectory}partitions/${songPartiton}`
 
@@ -41,7 +20,6 @@ export default function Partition() {
 				trustAllCerts={false}
 				onError={(error) => console.log(error)}
 			/>
-
 		</CustomSafeAreaView>
 	)
 }
