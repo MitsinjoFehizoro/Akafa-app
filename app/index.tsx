@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
@@ -7,9 +7,12 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { Header } from "@/components/index-screen/Header";
 import { Body } from "@/components/index-screen/Body";
 import { Footer } from "@/components/Footer";
+import { useLoadData } from "@/hooks/useLoadData";
 
 export default function Index() {
 	const colors = useThemeColor()
+	const { loadDataState } = useLoadData()
+
 	const [loaded] = useFonts({
 		'audiowide': require('@/assets/fonts/Audiowide-Regular.ttf'),
 		'bakbakone': require('@/assets/fonts/BakbakOne-Regular.ttf')
@@ -18,7 +21,7 @@ export default function Index() {
 	useEffect(() => {
 		if (loaded) SplashScreen.hideAsync();
 		else SplashScreen.preventAutoHideAsync()
-	}, [loaded]);
+	}, [loaded, loadDataState]);
 
 	if (!loaded) {
 		return <View />;

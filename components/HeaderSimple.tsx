@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import { RowView } from "./RowView";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, FontAwesome6 } from "@expo/vector-icons";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { CustomText } from "./CustomText";
 import { router } from "expo-router";
@@ -13,15 +13,15 @@ type Props = {
 export function HeaderSimple({ title }: Props) {
 	const colors = useThemeColor()
 	return (
-		<RowView gap={2} style={[styles.container, { backgroundColor: colors.primary }]}>
+		<RowView gap={8} style={[styles.container, { backgroundColor: colors.primary }]}>
 			<Pressable
 				style={styles.back}
 				onPress={router.back}
 				android_ripple={{ color: rgbaColor(colors.secondary, 0.3), foreground: true }}
 			>
-				<Entypo name='chevron-left' size={24} color={colors.grayWhite} />
+				<FontAwesome6 name='arrow-left' size={18} color={colors.grayWhite} />
 			</Pressable>
-			<CustomText style={{ textTransform: 'capitalize', marginTop: 5 }} variant='title2' color='grayWhite' >{title}</CustomText>
+			<CustomText style={{ textTransform: 'capitalize', marginTop: 2 }} variant='title2' color='grayWhite' >{title}</CustomText>
 		</RowView>
 	)
 }

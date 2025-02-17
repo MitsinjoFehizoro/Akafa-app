@@ -12,7 +12,7 @@ export function Header() {
 
 	//A modifier rehefa misy mis a jour
 	const countSoung = DATASONGS.length
-	const countPartition = DATASONGS.filter(s => s.partition.isPartition === true).length
+	const countPartition = DATASONGS.filter(s => s.isPartition === true).length
 
 	return (
 		<RowView style={[styles.container, { backgroundColor: colors.primary }]}>

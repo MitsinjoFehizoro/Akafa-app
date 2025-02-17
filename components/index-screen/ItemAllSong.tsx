@@ -7,21 +7,21 @@ import { Link } from "expo-router"
 import { rgbaColor } from "@/tools/rgbaColor"
 
 type Props = {
-	title: string,
+	type: string,
 	count: number,
 	icon: keyof typeof Entypo.glyphMap
 }
-export function ItemAllSong({ title, count, icon }: Props) {
+export function ItemAllSong({ type, count, icon }: Props) {
 	const colors = useThemeColor()
 	return (
-		<Link href={{ pathname: '/list', params: { type: title } }} asChild>
+		<Link href={{ pathname: '/list', params: { type: type } }} asChild>
 			<Pressable
 				android_ripple={{ color: rgbaColor(colors.grayLight, 0.3), foreground: true, }}
 			>
 				<RowView style={[styles.item, { borderColor: rgbaColor(colors.grayLight, 0.4) }]}>
 					<RowView gap={8}>
 						<Entypo name={icon} size={16} color={colors.secondary} />
-						<CustomText variant='subtitle2' color='secondary' style={{ marginTop: 3, textTransform: 'capitalize' }} >{title}</CustomText>
+						<CustomText variant='subtitle2' color='secondary' style={{ marginTop: 3, textTransform: 'capitalize' }} >{type}</CustomText>
 					</RowView>
 					<RowView gap={8}>
 						<View style={[styles.count, { backgroundColor: colors.primary }]}>

@@ -12,12 +12,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Aizan'ny lanitra no hisy anao",
@@ -54,12 +53,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": false,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Amboaran-kira",
@@ -114,12 +112,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Ampaherezo",
@@ -152,12 +149,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "Andravoahangy Fivavahana",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Ampianaro aho Tompo",
@@ -205,12 +201,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Ampianaro hahay mino",
@@ -249,12 +244,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Andro iray",
@@ -308,12 +302,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Androm-pamonjena",
@@ -356,12 +349,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Anio sy ho mandrakizay",
@@ -402,12 +394,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Ary aoka isika hifampandinika hampandroso ny fitiavana",
@@ -458,12 +449,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Ary aoka Jehovah hanao ny sitrapony",
@@ -496,12 +486,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Avia Jesosy o!",
@@ -557,12 +546,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Avia ry ondriko",
@@ -599,12 +587,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : Georges B.",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Avotra ihany ny tany",
@@ -645,12 +632,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Aza menatra ny ho vavolombelon'ny Tompo",
@@ -721,12 +707,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Betlehema",
@@ -774,12 +759,11 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
-		"type": [0]
+		"type": [
+			0
+		]
 	},
 	{
 		"title": "Canticorun",
@@ -817,11 +801,10 @@
 				]
 			}
 		],
-		"partition": {
-			"isPartition": true,
-			"url": "@assets/data/partitions/"
-		},
+		"isPartition": true,
 		"author": "A/C : Haendel",
-		"type": [0]
+		"type": [
+			0
+		]
 	}
 ]

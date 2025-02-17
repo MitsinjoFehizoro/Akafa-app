@@ -1,7 +1,7 @@
 export type Song = {
 	title: string,
 	lyrics: { key: string, value: string[] }[],
-	partition: { isPartition: boolean, url: string },
+	isPartition: boolean,
 	author: string,
 	type: number[]
 }

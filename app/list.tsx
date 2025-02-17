@@ -9,6 +9,7 @@ import { DATASONGS } from "@/constants/DATASONGS";
 import { PADDING } from "@/constants/PADDING";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
+import { Song } from "@/tools/type";
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
@@ -18,9 +19,10 @@ export default function List() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
 	const [searchValue, setSearchValue] = useState('')
-	const [songs, setSongs] = useState(DATASONGS)
+	const allSong = params.type.toString()==='solfa' ? DATASONGS.filter(data=>data.isPartition) : DATASONGS
+	const [songs, setSongs] = useState(allSong)
 	useEffect(() => {
-		setSongs(DATASONGS.filter(s => s.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())))
+		setSongs(allSong.filter(s => s.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())))
 	}, [searchValue])
 	const [isShowKeyboard, setIsShowKeyboard] = useState(false)
 	useEffect(() => {

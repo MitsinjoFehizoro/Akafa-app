@@ -14,7 +14,7 @@ export function Body() {
 	const colors = useThemeColor()
 	//A modifier rehefa misy mis a jour
 	const countSoung = DATASONGS.length
-	const countPartition = DATASONGS.filter(s => s.partition.isPartition === true).length
+	const countPartition = DATASONGS.filter(s => s.isPartition === true).length
 
 	return (
 		<View style={styles.body}>
@@ -30,14 +30,14 @@ export function Body() {
 				<View style={[styles.allSong, { backgroundColor: colors.grayWhite }]}>
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 16 }}>Hira rehetra</CustomText>
 					<View style={{ borderColor: rgbaColor(colors.grayLight, 0.4) }} >
-						<ItemAllSong title='tononkira' count={countSoung} icon='mic' />
-						<ItemAllSong title='solfa' count={countPartition} icon='note' />
+						<ItemAllSong type='tononkira' count={countSoung} icon='mic' />
+						<ItemAllSong type='solfa' count={countPartition} icon='note' />
 					</View>
 				</View>
 				{/* Category */}
 				<View style={styles.category}>
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 2, marginLeft: 4 }}>Fizarana</CustomText>
-					<View style={{ gap: 16 }}>
+					<View style={{ gap: 24 }}>
 						<RowView style={styles.rowCategory}>
 							<Category icon='adjust' title='fisaorana & fiderana' />
 							<Category icon='direction' title='asa & fanoloratena' />
