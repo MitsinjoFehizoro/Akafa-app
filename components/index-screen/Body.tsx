@@ -30,8 +30,17 @@ export function Body() {
 				<View style={[styles.allSong, { backgroundColor: colors.grayWhite }]}>
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 16 }}>Hira rehetra</CustomText>
 					<View style={{ borderColor: rgbaColor(colors.grayLight, 0.4) }} >
-						<ItemAllSong type='tononkira' count={countSoung} icon='mic' />
-						<ItemAllSong type='solfa' count={countPartition} icon='note' />
+						<ItemAllSong
+							pathname='/list'
+							type='tononkira'
+							count={countSoung}
+							icon='mic'
+						/>
+						<ItemAllSong
+							pathname='/list'
+							type='solfa'
+							count={countPartition}
+							icon='note' />
 					</View>
 				</View>
 				{/* Category */}

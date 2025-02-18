@@ -17,7 +17,8 @@ export default function Lyrics() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
 	const [zoom, setZoom] = useState(1)
-	const song = DATASONGS.filter(s => s.title === params.songTitle.toString())[0]
+
+	const song = DATASONGS.find(s => s.title === params.songTitle.toString())!
 	return (
 		<CustomSafeAreaView style={{ position: 'relative' }}>
 			<HeaderSimple title={params.type.toString()} />

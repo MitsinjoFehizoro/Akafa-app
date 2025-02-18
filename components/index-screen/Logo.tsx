@@ -15,6 +15,17 @@ export function Logo() {
 		</RowView>
 	)
 }
+export function SecondLogo() {
+	const colors = useThemeColor()
+	return (
+		<RowView>
+			<View style={[styles.wrapper, { backgroundColor: colors.primary }]}>
+				<CustomText style={styles.a} variant='title1' color='grayWhite' >A</CustomText>
+			</View>
+			<CustomText style={{ alignSelf: 'flex-end' }} variant='title1' color='primary' >kafa</CustomText>
+		</RowView>
+	)
+}
 
 export function BigLogo({ style, ...rest }: ViewProps) {
 	const colors = useThemeColor()

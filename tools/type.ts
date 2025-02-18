@@ -5,3 +5,7 @@ export type Song = {
 	author: string,
 	type: number[]
 }
+export type PopupAndSong = {
+	isShowPopup: boolean,
+	selectedSong: string
+}

@@ -1,29 +1,30 @@
 import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
-import { CustomText } from "@/components/CustomText";
 import { Footer } from "@/components/Footer";
 import { HeaderSimple } from "@/components/HeaderSimple";
-import { BigLogo } from "@/components/index-screen/Logo";
 import { ListItem } from "@/components/list-screen/ListItem";
+import { Popup } from "@/components/list-screen/Popup";
 import { SearchBar } from "@/components/list-screen/SearchBar";
 import { DATASONGS } from "@/constants/DATASONGS";
 import { PADDING } from "@/constants/PADDING";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
-import { Song } from "@/tools/type";
-import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
+import { PopupAndSong } from "@/tools/type";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { FlatList, Keyboard, StyleSheet, Text, View } from "react-native";
+import { FlatList, Keyboard, StyleSheet, View } from "react-native";
 
 export default function List() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
 	const [searchValue, setSearchValue] = useState('')
-	const allSong = params.type.toString()==='solfa' ? DATASONGS.filter(data=>data.isPartition) : DATASONGS
+	const allSong = params.type.toString() === 'solfa' ? DATASONGS.filter(data => data.isPartition) : DATASONGS
 	const [songs, setSongs] = useState(allSong)
 	useEffect(() => {
 		setSongs(allSong.filter(s => s.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())))
 	}, [searchValue])
+
+	//Keyboard
 	const [isShowKeyboard, setIsShowKeyboard] = useState(false)
 	useEffect(() => {
 		const keyboardDidShowListener = Keyboard.addListener(
@@ -45,6 +46,11 @@ export default function List() {
 			keyboardDidHideListener.remove();
 		};
 	}, [])
+
+	//Popup
+	const [showPopupAndSelectedSong, setShowPopupAndSetSelectedSong] = useState<PopupAndSong>({
+		isShowPopup: false, selectedSong: ''
+	})
 	return (
 		<CustomSafeAreaView>
 			<View>
@@ -63,7 +69,7 @@ export default function List() {
 						data={songs}
 						keyExtractor={(_, index) => index.toString()}
 						renderItem={({ item }) =>
-							<ListItem song={item} type={params.type.toString()} />
+							<ListItem song={item} type={params.type.toString()} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />
 						}
 						contentContainerStyle={{ padding: 16, gap: 8 }}
 					/>
@@ -78,7 +84,7 @@ export default function List() {
 					<Footer />
 				)
 			}
-
+			<Popup showPopupAndSelectedSong={showPopupAndSelectedSong} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />
 		</CustomSafeAreaView>
 
 	)
