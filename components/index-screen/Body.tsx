@@ -48,16 +48,18 @@ export function Body() {
 					<CustomText variant='subtitle1' color='primary' style={{ marginBottom: 2, marginLeft: 4 }}>Fizarana</CustomText>
 					<View style={{ gap: 24 }}>
 						<RowView style={styles.rowCategory}>
-							<Category icon='adjust' title='fisaorana & fiderana' />
-							<Category icon='direction' title='asa & fanoloratena' />
-							<Category icon='eraser' title='fifonana & fibebahana' />
-							<Category icon='key' title='vavaka & fangatahana' />
+							{
+								Array.from({ length: 4 }, (_, i) =>
+									<Category key={i} categoryKey={i} />
+								)
+							}
 						</RowView>
 						<RowView style={styles.rowCategory}>
-							<Category icon='flag' title='faneva' />
-							<Category icon='price-tag' title='noely' />
-							<Category icon='spreadsheet' title='paska' />
-							<Category icon='colours' title='hafa' />
+							{
+								Array.from({ length: 4 }, (_, i) =>
+									<Category key={i} categoryKey={i+4} />
+								)
+							}
 						</RowView>
 					</View>
 				</View>

@@ -5,6 +5,7 @@ import { CustomText } from "../CustomText"
 import { Pressable, StyleSheet, View } from "react-native"
 import { Link } from "expo-router"
 import { rgbaColor } from "@/tools/rgbaColor"
+import {  useAndroidRipple } from "@/hooks/useAndroidRipple"
 
 type Props = {
 	type: string,
@@ -18,7 +19,7 @@ export function ItemAllSong({ type, count, icon, pathname, songTitle }: Props) {
 	return (
 		<Link href={{ pathname: pathname, params: { type: type, songTitle: songTitle } }} asChild>
 			<Pressable
-				android_ripple={{ color: rgbaColor(colors.grayLight, 0.3), foreground: true, }}
+				android_ripple={{ ...useAndroidRipple() }}
 			>
 				<RowView style={[styles.item, { borderColor: rgbaColor(colors.grayLight, 0.4) }]}>
 					<RowView gap={8}>

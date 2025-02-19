@@ -8,29 +8,36 @@ import { rgbaColor } from "@/tools/rgbaColor";
 import { PADDING } from "@/constants/PADDING";
 
 type Props = {
-	title: string
+	title: string,
+	subTitle?: string
 }
-export function HeaderSimple({ title }: Props) {
+export function HeaderSimple({ title, subTitle }: Props) {
 	const colors = useThemeColor()
 	return (
-		<RowView gap={8} style={[styles.container, { backgroundColor: colors.primary }]}>
+		<RowView gap={8} style={[styles.container, { backgroundColor: colors.primary, height: subTitle ? 64 : 56, }]}>
 			<Pressable
-				style={styles.back}
+				style={[styles.back]}
 				onPress={router.back}
 				android_ripple={{ color: rgbaColor(colors.secondary, 0.3), foreground: true }}
 			>
 				<FontAwesome6 name='arrow-left' size={18} color={colors.grayWhite} />
 			</Pressable>
-			<CustomText style={{ textTransform: 'capitalize', marginTop: 2 }} variant='title2' color='grayWhite' >{title}</CustomText>
+			<View style={{ marginTop: subTitle ? -8 : 0 }}>
+				<CustomText style={{ textTransform: 'capitalize', marginTop: 2 }} variant='title2' color='grayWhite' >{title}</CustomText>
+				{
+					subTitle && (
+						<CustomText variant='body1' color='grayWhite' style={{ marginTop: -8, marginLeft: 4 }} >{subTitle}</CustomText>
+					)
+				}
+			</View>
 		</RowView>
 	)
 }
 const styles = StyleSheet.create({
 	container: {
-		height: 56,
 		alignItems: 'center',
 		paddingRight: PADDING.base,
-		paddingLeft : 8,
+		paddingLeft: 8,
 	},
 	back: {
 		width: 32, height: 32,

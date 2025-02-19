@@ -56,7 +56,8 @@
 		"isPartition": false,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			1,
+			5
 		]
 	},
 	{
@@ -115,7 +116,8 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			1,
+			2
 		]
 	},
 	{
@@ -152,7 +154,8 @@
 		"isPartition": true,
 		"author": "Andravoahangy Fivavahana",
 		"type": [
-			0
+			3,
+			4
 		]
 	},
 	{
@@ -204,7 +207,9 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			1,
+			5,
+			7
 		]
 	},
 	{
@@ -247,7 +252,9 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			0,
+			5,
+			4
 		]
 	},
 	{
@@ -305,7 +312,13 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
 		]
 	},
 	{
@@ -352,7 +365,7 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			7
 		]
 	},
 	{
@@ -397,7 +410,9 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			3,
+			6,
+			2
 		]
 	},
 	{
@@ -452,7 +467,9 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			6,
+			5,
+			4
 		]
 	},
 	{
@@ -489,7 +506,9 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			2,
+			6,
+			7
 		]
 	},
 	{
@@ -590,7 +609,8 @@
 		"isPartition": true,
 		"author": "A/C : Georges B.",
 		"type": [
-			0
+			2,
+			4
 		]
 	},
 	{
@@ -635,7 +655,8 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			3,
+			6
 		]
 	},
 	{
@@ -710,7 +731,8 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
-			0
+			4,
+			2
 		]
 	},
 	{
@@ -762,6 +784,8 @@
 		"isPartition": true,
 		"author": "A/C : RAKOTOARIVELO Samson",
 		"type": [
+			1,
+			7,
 			0
 		]
 	},
@@ -804,7 +828,13 @@
 		"isPartition": true,
 		"author": "A/C : Haendel",
 		"type": [
-			0
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
 		]
 	}
 ]

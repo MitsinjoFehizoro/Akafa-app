@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		...SHADOW.base2,
-		paddingLeft: 16,
-		paddingRight: 12,
+		paddingHorizontal :16,
 		borderRadius: 8
 	},
 	pressable: {

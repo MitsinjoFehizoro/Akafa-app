@@ -6,9 +6,10 @@ import { Popup } from "@/components/list-screen/Popup";
 import { SearchBar } from "@/components/list-screen/SearchBar";
 import { DATASONGS } from "@/constants/DATASONGS";
 import { PADDING } from "@/constants/PADDING";
+import { SONG_CATEGORY } from "@/constants/SONG_CATEGORY";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
-import { PopupAndSong } from "@/tools/type";
+import { PopupAndSong, Song } from "@/tools/type";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
@@ -17,12 +18,23 @@ import { FlatList, Keyboard, StyleSheet, View } from "react-native";
 export default function List() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
+
+	//Song filter
+	const [allSong, setAllSong] = useState<Song[]>([])
+	useEffect(() => {
+		if (params.categoryKey) {
+			setAllSong(DATASONGS.filter(s => s.type.toString().includes(params.categoryKey.toString())))
+		} else {
+			setAllSong(params.type.toString() === 'solfa' ? DATASONGS.filter(data => data.isPartition) : DATASONGS)
+		}
+	}, [])
+
+	//Search
+	const [songs, setSongs] = useState<Song[]>([])
 	const [searchValue, setSearchValue] = useState('')
-	const allSong = params.type.toString() === 'solfa' ? DATASONGS.filter(data => data.isPartition) : DATASONGS
-	const [songs, setSongs] = useState(allSong)
 	useEffect(() => {
 		setSongs(allSong.filter(s => s.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())))
-	}, [searchValue])
+	}, [searchValue, allSong])
 
 	//Keyboard
 	const [isShowKeyboard, setIsShowKeyboard] = useState(false)
@@ -54,7 +66,7 @@ export default function List() {
 	return (
 		<CustomSafeAreaView>
 			<View>
-				<HeaderSimple title={params.type.toString()} />
+				<HeaderSimple title={params.type.toString()} subTitle={params.categoryKey ? SONG_CATEGORY[parseInt(params.categoryKey.toString()) as keyof typeof SONG_CATEGORY].title : undefined} />
 				<View style={[styles.search, { backgroundColor: colors.primary }]}>
 					<SearchBar
 						value={searchValue}
@@ -64,19 +76,19 @@ export default function List() {
 			</View>
 
 			{
-				songs.length !== 0 ? (
+				songs.length === 0 && searchValue ? (
+					<View style={styles.breakSearch}>
+						<FontAwesome5 name='searchengin' size={72} color={rgbaColor(colors.secondary, 0.4)} />
+					</View>
+				) : (
 					<FlatList
 						data={songs}
 						keyExtractor={(_, index) => index.toString()}
 						renderItem={({ item }) =>
 							<ListItem song={item} type={params.type.toString()} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />
 						}
-						contentContainerStyle={{ padding: 16, gap: 8 }}
+						contentContainerStyle={{ padding: 16, gap: 8, paddingBottom: 64 }}
 					/>
-				) : (
-					<View style={styles.breakSearch}>
-						<FontAwesome5 name='searchengin' size={72} color={rgbaColor(colors.secondary, 0.4)} />
-					</View>
 				)
 			}
 			{
