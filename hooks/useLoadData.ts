@@ -70,7 +70,7 @@ export const useLoadData = () => {
 				if (fileInfo.isDirectory) {
 					await clearFileSystem(fileUri)
 				} else {
-					await FileSystem.deleteAsync(fileUri);
+					await FileSystem.deleteAsync(fileUri, { idempotent: true });
 				}
 			}
 			const newFiles = await FileSystem.readDirectoryAsync(directoryUri);

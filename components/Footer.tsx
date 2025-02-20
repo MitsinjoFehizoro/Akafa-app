@@ -1,9 +1,11 @@
-import { StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { RowView } from "./RowView";
 import { Entypo } from "@expo/vector-icons";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { CustomText } from "./CustomText";
 import { SHADOW } from "@/constants/SHADOW";
+import { Link } from "expo-router";
+import { useAndroidRipple } from "@/hooks/useAndroidRipple";
 
 export function Footer() {
 	return (
@@ -23,10 +25,14 @@ type Props = {
 function MenuFooter({ icon, title }: Props) {
 	const colors = useThemeColor()
 	return (
-		<View style={styles.wrapper}>
-			<Entypo name={icon} size={16} color={colors.grayLight} />
-			<CustomText style={styles.text} variant='subtitle3' color='grayLight'>{title}</CustomText>
-		</View>
+		<Link href={{ pathname: '/setting' }} asChild>
+			<Pressable android_ripple={{...useAndroidRipple()}} >
+			<View style={styles.wrapper}>
+				<Entypo name={icon} size={16} color={colors.grayLight} />
+				<CustomText style={styles.text} variant='subtitle3' color='grayLight'>{title}</CustomText>
+			</View>
+			</Pressable>
+		</Link>
 	)
 }
 function MenuHome() {
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
 		borderTopRightRadius: 32,
 		paddingHorizontal: 8,
 		paddingTop: 12,
-		zIndex :2,
+		zIndex: 2,
 		...SHADOW.base1
 	},
 	wrapper: {
