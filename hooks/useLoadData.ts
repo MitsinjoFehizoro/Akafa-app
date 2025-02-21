@@ -10,9 +10,8 @@ export const useLoadData = () => {
 
 	const loadSongJson = async () => {
 		console.log('Load song json.')
-
+		const songDirectory = FileSystem.documentDirectory + 'songs/'
 		try {
-			const songDirectory = FileSystem.documentDirectory + 'songs/'
 			const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
 			if (infoSongDirectory.exists) {
 				return console.log('Song json alredy loaded.')

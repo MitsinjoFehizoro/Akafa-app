@@ -9,3 +9,8 @@ export type PopupAndSong = {
 	isShowPopup: boolean,
 	selectedSong: string
 }
+export type StateAxios = {
+	isLoading: boolean,
+	isError: boolean,
+	message?: string
+}

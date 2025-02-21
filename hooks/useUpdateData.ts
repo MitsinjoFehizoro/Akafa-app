@@ -1,83 +1,88 @@
-
-import { useEffect, useState } from "react"
-import * as FileSystem from "expo-file-system";
-import { Song } from "@/tools/type";
-import axios from 'axios';
+import { Song, StateAxios } from "@/tools/type";
+import { useState } from "react";
+import * as FileSystem from 'expo-file-system'
+import axios from 'axios'
+import { Buffer } from 'buffer'
 import JSZip from "jszip";
-import { Buffer } from 'buffer';
 
-export const useUpdateData = () => {
-	const [dataUpdated, setDataUpdated] = useState({
-		song: false, partition: false
+export function useUpdateData() {
+	const [stateUpdateSong, setStateUpdateSong] = useState<StateAxios>({
+		isLoading: false, isError: false
 	})
-
-	const gitSongJson = "https://raw.githubusercontent.com/MitsinjoFehizoro/Data-Akafa/main/git_songs.json"
-	const localSongJson = FileSystem.documentDirectory + 'songs/songs.json'
-
-	const [localSong, setLocalSong] = useState<Song[]>([])
+	const [stateUpdatePartitions, setStateUpdatePartitions] = useState<StateAxios>({
+		isLoading: false, isError: false
+	})
+	const gitUrl = 'https://raw.githubusercontent.com/MitsinjoFehizoro/Data-Akafa/main/'
+	const [newLocalDataSong, setNewLocalDataSong] = useState<Song[]>([])
 
 	const updateSongJson = async () => {
-		console.log('Update song json.')
+		console.log('Update song Json.')
+		const localSongJson = FileSystem.documentDirectory + 'songs/songs.json'
 		try {
-			const response = await axios.get(gitSongJson)
-			const gitSongDataRemote = response.data as Song[]
+			setStateUpdateSong({ isLoading: true, isError: false })
+			const response = await axios.get(gitUrl + 'git_songs.json')
+			const remoteDataSong: Song[] = response.data
 
-			const localDataSong = await FileSystem.readAsStringAsync(localSongJson)
-			setLocalSong(JSON.parse(localDataSong))
+			const localSong = await FileSystem.readAsStringAsync(localSongJson)
+			const localDataSong: Song[] = JSON.parse(localSong)
 
-			gitSongDataRemote.forEach(remote => {
-				const searchSong = localSong.filter(local => local.title === remote.title)
+			let countNewSong = 0
+			remoteDataSong.forEach(remoteSong => {
+				const searchSong = localDataSong.filter(local => local.title === remoteSong.title)
 				if (searchSong.length !== 0) {
-					localSong.filter(local => local.title != remote.title)
+					const newData = localDataSong.filter(local => local.title !== remoteSong.title)
+					setNewLocalDataSong([...newData, remoteSong])
+				} else {
+					setNewLocalDataSong([...localDataSong, remoteSong])
+					countNewSong++
 				}
-				setLocalSong([...localSong, remote])
 			})
-			setLocalSong(localSong.sort((a, b) => a.title.localeCompare(b.title)))
-			console.log('Song json updated with success.')
+			setNewLocalDataSong(newLocalDataSong.sort((a, b) => a.title.localeCompare(b.title)))
+			await FileSystem.deleteAsync(localSongJson, { idempotent: true })
+			await FileSystem.writeAsStringAsync(localSongJson, JSON.stringify(newLocalDataSong))
+			setStateUpdateSong({ ...stateUpdateSong, isError: false, message: countNewSong.toString() })
+			console.log('Song json updated with success : ', countNewSong)
 		} catch (error) {
-			console.log('Error of updated song json : ', error)
+			const message = 'Error during updated song json.'
+			setStateUpdateSong({ ...stateUpdateSong, isError: true, message: message })
+			console.log(message, error)
 		} finally {
-			setDataUpdated({ ...dataUpdated, song: true })
+			setStateUpdateSong({ ...stateUpdateSong, isLoading: false })
 		}
 	}
 
-
-	const gitPartitions = "https://raw.githubusercontent.com/MitsinjoFehizoro/Data-Akafa/main/git_partitions.zip"
-	const remotePartitionsZip = FileSystem.documentDirectory + '/partitions_remote.zip'
-
-	const updatePartitions = async () => {
+	const updateParitions = async () => {
 		console.log('Update partitions.')
+		const localPartitionsDirectory = FileSystem.documentDirectory + 'partitions/'
 		try {
-			const response = await axios.get(gitPartitions, { responseType: 'arraybuffer' })
-			const gitPartitionsData = Buffer.from(response.data, 'binary').toString('base64')
-
-			await FileSystem.writeAsStringAsync(remotePartitionsZip, gitPartitionsData, {
-				encoding: FileSystem.EncodingType.Base64
-			})
-			const partitionsZipData = await FileSystem.readAsStringAsync(remotePartitionsZip, { encoding: FileSystem.EncodingType.Base64 })
-			const paritionJsZip = await JSZip.loadAsync(partitionsZipData, { base64: true })
-			for (const [relativePath, file] of Object.entries(paritionJsZip.files)) {
+			setStateUpdatePartitions({ isLoading: true, isError: false })
+			const response = await axios.get(gitUrl + 'git_partitions.zip', { responseType: 'arraybuffer' })
+			const partitionsZipData = Buffer.from(response.data, 'binary').toString('base64')
+			const partitionsJsZipData = await JSZip.loadAsync(partitionsZipData, { base64: true })
+			let countNewPartitions = 0
+			for (const [relativePath, file] of Object.entries(partitionsJsZipData.files)) {
 				const dataPdf = await file.async('base64')
-				const partitionPath = FileSystem.documentDirectory + `partitions/${relativePath}`
-				const infoPartition = await FileSystem.getInfoAsync(partitionPath)
-				if (infoPartition.exists) {
-					await FileSystem.deleteAsync(partitionPath, { idempotent: true })
-				}
-				await FileSystem.writeAsStringAsync(partitionPath, dataPdf, { encoding: FileSystem.EncodingType.Base64 })
+				const pathPdf = localPartitionsDirectory + relativePath //relativePath == name of partition
+				const infoPathPdf = await FileSystem.getInfoAsync(pathPdf)
+				if (infoPathPdf.exists)
+					await FileSystem.deleteAsync(pathPdf, { idempotent: true })
+				else countNewPartitions++
+				await FileSystem.writeAsStringAsync(pathPdf, dataPdf, { encoding: FileSystem.EncodingType.Base64 })
 			}
-			await FileSystem.deleteAsync(remotePartitionsZip)
-			const partitionDirectoryContent = await FileSystem.readDirectoryAsync(FileSystem.documentDirectory + `partitions/`)
-			console.log(`${partitionDirectoryContent.length} partitions loaded with success.`, partitionDirectoryContent)
+			setStateUpdatePartitions({ ...stateUpdatePartitions, isError: false, message: countNewPartitions.toString() })
+			console.log('Partitions updated with success : ', countNewPartitions)
 		} catch (error) {
-			console.error('Error of updated partitions : ', error)
+			const message = 'Error during updated partitions.'
+			setStateUpdatePartitions({ ...stateUpdatePartitions, isError: true, message: message })
+			console.log(message, error)
 		} finally {
-			setDataUpdated({ ...dataUpdated, partition: true })
+			setStateUpdatePartitions({ ...stateUpdatePartitions, isLoading: false })
 		}
 	}
-
 	return {
-		dataUpdated,
+		stateUpdateSong,
+		stateUpdatePartitions,
 		updateSongJson,
-		updatePartitions
+		updateParitions
 	}
 }
