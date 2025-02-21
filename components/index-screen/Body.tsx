@@ -1,20 +1,25 @@
 import { PADDING } from "@/constants/PADDING";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { BlurView } from "expo-blur";
-import { ScrollView, ScrollViewProps, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { CustomText } from "../CustomText";
 import { RowView } from "../RowView";
 import { ItemAllSong } from "./ItemAllSong";
 import { Category } from "./Category";
 import { BigLogo } from "./Logo";
 import { rgbaColor } from "@/tools/rgbaColor";
-import { DATASONGS } from "@/constants/DATASONGS";
+import { useEffect } from "react";
+import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
+import { useGetSongs } from "@/hooks/useGetSongs";
 
 export function Body() {
 	const colors = useThemeColor()
-	//A modifier rehefa misy mis a jour
-	const countSoung = DATASONGS.length
-	const countPartition = DATASONGS.filter(s => s.isPartition === true).length
+
+	const { allDataSongs } = useContextGetAllSongs()
+	const { songsWithPartition, getSongsWithPartition } = useGetSongs()
+	useEffect(() => {
+		getSongsWithPartition()
+	}, [allDataSongs])
+
 
 	return (
 		<View style={styles.body}>
@@ -33,13 +38,13 @@ export function Body() {
 						<ItemAllSong
 							pathname='/list'
 							type='tononkira'
-							count={countSoung}
+							count={allDataSongs.length}
 							icon='mic'
 						/>
 						<ItemAllSong
 							pathname='/list'
 							type='solfa'
-							count={countPartition}
+							count={songsWithPartition.length}
 							icon='note' />
 					</View>
 				</View>
@@ -57,7 +62,7 @@ export function Body() {
 						<RowView style={styles.rowCategory}>
 							{
 								Array.from({ length: 4 }, (_, i) =>
-									<Category key={i} categoryKey={i+4} />
+									<Category key={i} categoryKey={i + 4} />
 								)
 							}
 						</RowView>

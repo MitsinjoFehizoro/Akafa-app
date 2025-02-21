@@ -5,7 +5,7 @@ import { CustomText } from "../CustomText"
 import { Pressable, StyleSheet, View } from "react-native"
 import { Link } from "expo-router"
 import { rgbaColor } from "@/tools/rgbaColor"
-import {  useAndroidRipple } from "@/hooks/useAndroidRipple"
+import { useAndroidRipple } from "@/hooks/useAndroidRipple"
 
 type Props = {
 	type: string,
@@ -26,14 +26,19 @@ export function ItemAllSong({ type, count, icon, pathname, songTitle }: Props) {
 						<Entypo name={icon} size={16} color={colors.secondary} />
 						<CustomText variant='subtitle2' color='secondary' style={{ marginTop: 3, textTransform: 'capitalize' }} >{type}</CustomText>
 					</RowView>
-					<RowView gap={8}>
-						{count && (
-							<View style={[styles.count, { backgroundColor: colors.primary }]}>
-								<CustomText style={{ marginTop: 1 }} variant='subtitle3'>{count}</CustomText>
-							</View>
-						)}
-						<Entypo name='chevron-right' size={16} color={colors.grayLight} />
-					</RowView>
+					{
+						count ? (
+							<RowView gap={8}>
+								<View style={[styles.count, { backgroundColor: colors.primary }]}>
+									<CustomText style={{ marginTop: 1 }} variant='subtitle3'>{count}</CustomText>
+								</View>
+								<Entypo name='chevron-right' size={16} color={colors.grayLight} />
+							</RowView>
+						) : (
+							<Entypo name='chevron-right' size={16} color={colors.grayLight} />
+						)
+					}
+
 				</RowView>
 			</Pressable>
 		</Link >

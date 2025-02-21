@@ -4,8 +4,10 @@ import * as FileSystem from 'expo-file-system'
 import axios from 'axios'
 import { Buffer } from 'buffer'
 import JSZip from "jszip";
+import { useContextGetAllSongs } from "./useContextGetAllSongs";
 
 export function useUpdateData() {
+	const { getAllDataSongs } = useContextGetAllSongs()
 	const [stateUpdateSong, setStateUpdateSong] = useState<StateAxios>({
 		isLoading: false, isError: false
 	})
@@ -13,7 +15,6 @@ export function useUpdateData() {
 		isLoading: false, isError: false
 	})
 	const gitUrl = 'https://raw.githubusercontent.com/MitsinjoFehizoro/Data-Akafa/main/'
-	const [newLocalDataSong, setNewLocalDataSong] = useState<Song[]>([])
 
 	const updateSongJson = async () => {
 		console.log('Update song Json.')
@@ -24,22 +25,20 @@ export function useUpdateData() {
 			const remoteDataSong: Song[] = response.data
 
 			const localSong = await FileSystem.readAsStringAsync(localSongJson)
-			const localDataSong: Song[] = JSON.parse(localSong)
+			let localDataSong: Song[] = JSON.parse(localSong)
 
 			let countNewSong = 0
 			remoteDataSong.forEach(remoteSong => {
 				const searchSong = localDataSong.filter(local => local.title === remoteSong.title)
-				if (searchSong.length !== 0) {
-					const newData = localDataSong.filter(local => local.title !== remoteSong.title)
-					setNewLocalDataSong([...newData, remoteSong])
-				} else {
-					setNewLocalDataSong([...localDataSong, remoteSong])
-					countNewSong++
-				}
+				if (searchSong.length !== 0)
+					localDataSong = localDataSong.filter(local => local.title !== remoteSong.title)
+				else countNewSong++
+				localDataSong.push(remoteSong)
 			})
-			setNewLocalDataSong(newLocalDataSong.sort((a, b) => a.title.localeCompare(b.title)))
+
 			await FileSystem.deleteAsync(localSongJson, { idempotent: true })
-			await FileSystem.writeAsStringAsync(localSongJson, JSON.stringify(newLocalDataSong))
+			await FileSystem.writeAsStringAsync(localSongJson, JSON.stringify(localDataSong.sort((a, b) => a.title.localeCompare(b.title))))
+			getAllDataSongs() //Rechargement des chansons
 			setStateUpdateSong({ ...stateUpdateSong, isError: false, message: countNewSong.toString() })
 			console.log('Song json updated with success : ', countNewSong)
 		} catch (error) {

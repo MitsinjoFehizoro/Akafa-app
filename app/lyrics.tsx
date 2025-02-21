@@ -5,32 +5,36 @@ import Slider from '@react-native-community/slider';
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useCallback, useEffect, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, TextProps, View } from "react-native";
-import { DATASONGS } from "@/constants/DATASONGS";
-import { CustomText } from "@/components/CustomText";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import { BigLogo } from "@/components/index-screen/Logo";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { Entypo } from "@expo/vector-icons";
 import { RowView } from "@/components/RowView";
+import { useAndroidRipple } from "@/hooks/useAndroidRipple";
+import { useGetSongs } from "@/hooks/useGetSongs";
+import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
 
 export default function Lyrics() {
 	const colors = useThemeColor()
 	const params = useLocalSearchParams()
 	const [zoom, setZoom] = useState(1)
 
-	const song = DATASONGS.find(s => s.title === params.songTitle.toString())!
+	const { songByTitle, getSongByTitle } = useGetSongs()
+
+	useEffect(() => {
+		getSongByTitle(params.songTitle.toString())
+	}, [])
+
 	return (
 		<CustomSafeAreaView style={{ position: 'relative' }}>
 			<HeaderSimple title={params.type.toString()} />
 			<FlatList
 				style={{ backgroundColor: 'transparent' }}
-				data={song.lyrics}
+				data={songByTitle!.lyrics}
 				keyExtractor={(_, index) => index.toString()}
 				renderItem={({ item }) =>
 					<FlatLyrics keyValue={item.key} value={item.value} zoom={zoom} />
 				}
-				ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: colors.secondary }]}>{song.title}</Text>}
-				ListFooterComponent={<Text style={[styles.textFooter, { fontSize: 10 * zoom, color: colors.grayDark }]}>{song.author}</Text>}
+				ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: colors.secondary }]}>{songByTitle!.title}</Text>}
+				ListFooterComponent={<Text style={[styles.textFooter, { fontSize: 10 * zoom, color: colors.grayDark }]}>{songByTitle!.author}</Text>}
 				contentContainerStyle={styles.containerStyle}
 			/>
 			<View style={styles.wrapperSlide}>
@@ -47,6 +51,7 @@ export default function Lyrics() {
 					/>
 					<Pressable
 						onPress={() => setZoom(1)}
+						android_ripple={{ ...useAndroidRipple() }}
 						style={[styles.button, { backgroundColor: colors.primary }]}
 					>
 						<Entypo name='cw' size={14} color={colors.grayWhite} />

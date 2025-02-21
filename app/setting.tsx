@@ -28,7 +28,7 @@ export default function Setting() {
 						<CustomText variant='body1' color='grayDark'>1. Tsindrio ny bokotra etsy ambany.</CustomText>
 					</View>
 					<Pressable
-						onPress={() => updateParitions()}
+						onPress={() => updateSongJson()}
 						style={[styles.button, { backgroundColor: colors.secondary }]}>
 						<CustomText variant='subtitle3' color='grayWhite'>Mettre à jour</CustomText>
 					</Pressable>

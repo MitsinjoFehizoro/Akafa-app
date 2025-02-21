@@ -4,9 +4,10 @@ import { HeaderSimple } from "@/components/HeaderSimple";
 import { ListItem } from "@/components/list-screen/ListItem";
 import { Popup } from "@/components/list-screen/Popup";
 import { SearchBar } from "@/components/list-screen/SearchBar";
-import { DATASONGS } from "@/constants/DATASONGS";
 import { PADDING } from "@/constants/PADDING";
 import { SONG_CATEGORY } from "@/constants/SONG_CATEGORY";
+import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
+import { useGetSongs } from "@/hooks/useGetSongs";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { PopupAndSong, Song } from "@/tools/type";
@@ -21,13 +22,21 @@ export default function List() {
 
 	//Song filter
 	const [allSong, setAllSong] = useState<Song[]>([])
+
+	const { allDataSongs } = useContextGetAllSongs()
+	const { songsWithPartition, getSongsWithPartition } = useGetSongs()
+	useEffect(() => {
+		getSongsWithPartition()
+	}, [allDataSongs])
+
+
 	useEffect(() => {
 		if (params.categoryKey) {
-			setAllSong(DATASONGS.filter(s => s.type.toString().includes(params.categoryKey.toString())))
+			setAllSong(allDataSongs.filter(s => s.type.toString().includes(params.categoryKey.toString())))
 		} else {
-			setAllSong(params.type.toString() === 'solfa' ? DATASONGS.filter(data => data.isPartition) : DATASONGS)
+			setAllSong(params.type.toString() === 'solfa' ? songsWithPartition : allDataSongs)
 		}
-	}, [])
+	}, [allDataSongs, songsWithPartition])
 
 	//Search
 	const [songs, setSongs] = useState<Song[]>([])
@@ -113,5 +122,4 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
-
 })
