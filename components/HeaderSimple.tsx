@@ -8,7 +8,7 @@ import { rgbaColor } from "@/tools/rgbaColor";
 import { PADDING } from "@/constants/PADDING";
 
 type Props = {
-	title: string,
+	title?: string,
 	subTitle?: string
 }
 export function HeaderSimple({ title, subTitle }: Props) {
@@ -22,14 +22,18 @@ export function HeaderSimple({ title, subTitle }: Props) {
 			>
 				<FontAwesome6 name='arrow-left' size={18} color={colors.grayWhite} />
 			</Pressable>
-			<View style={{ marginTop: subTitle ? -8 : 0 }}>
-				<CustomText style={{ textTransform: 'capitalize', marginTop: 2 }} variant='title2' color='grayWhite' >{title}</CustomText>
-				{
-					subTitle && (
-						<CustomText variant='body1' color='grayWhite' style={{ marginTop: -8, marginLeft: 4 }} >{subTitle}</CustomText>
-					)
-				}
-			</View>
+			{
+				title && (
+					<View style={{ marginTop: subTitle ? -8 : 0 }}>
+						<CustomText style={{ textTransform: 'capitalize', marginTop: 2 }} variant='title2' color='grayWhite' >{title}</CustomText>
+						{
+							subTitle && (
+								<CustomText variant='body1' color='grayWhite' style={{ marginTop: -8, marginLeft: 4 }} >{subTitle}</CustomText>
+							)
+						}
+					</View>
+				)
+			}
 		</RowView>
 	)
 }

@@ -36,5 +36,8 @@ const styles = StyleSheet.create({
 	},
 	body2: {
 		fontSize: 10,
+	},
+	caption: {
+		fontSize: 8,
 	}
 })

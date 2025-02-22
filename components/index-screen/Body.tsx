@@ -27,7 +27,7 @@ export function Body() {
 				<CustomText variant='subtitle3' style={{ opacity: 0.8, marginBottom: -4 }}>Raha mbola velona koa aho</CustomText>
 				<CustomText variant='title1'>Hihira Ho Anao</CustomText>
 			</View>
-			<View style={{ backgroundColor: colors.primary, }}>
+			<View style={{ backgroundColor: colors.primary}}>
 				<BigLogo style={styles.bigLogo} />
 			</View>
 			<ScrollView style={styles.container} contentContainerStyle={{ gap: 16 }} >
