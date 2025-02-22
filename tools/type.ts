@@ -12,5 +12,6 @@ export type PopupAndSong = {
 export type StateAxios = {
 	isLoading: boolean,
 	isError: boolean,
+	isFinish: boolean,
 	message?: string
 }

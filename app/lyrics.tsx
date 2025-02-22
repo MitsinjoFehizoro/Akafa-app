@@ -26,17 +26,22 @@ export default function Lyrics() {
 	return (
 		<CustomSafeAreaView style={{ position: 'relative' }}>
 			<HeaderSimple title={params.type.toString()} />
-			<FlatList
-				style={{ backgroundColor: 'transparent' }}
-				data={songByTitle!.lyrics}
-				keyExtractor={(_, index) => index.toString()}
-				renderItem={({ item }) =>
-					<FlatLyrics keyValue={item.key} value={item.value} zoom={zoom} />
-				}
-				ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: colors.secondary }]}>{songByTitle!.title}</Text>}
-				ListFooterComponent={<Text style={[styles.textFooter, { fontSize: 10 * zoom, color: colors.grayDark }]}>{songByTitle!.author}</Text>}
-				contentContainerStyle={styles.containerStyle}
-			/>
+			{
+				songByTitle && (
+					<FlatList
+						style={{ backgroundColor: 'transparent' }}
+						data={songByTitle.lyrics}
+						keyExtractor={(_, index) => index.toString()}
+						renderItem={({ item }) =>
+							<FlatLyrics keyValue={item.key} value={item.value} zoom={zoom} />
+						}
+						ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: colors.secondary }]}>{songByTitle!.title}</Text>}
+						ListFooterComponent={<Text style={[styles.textFooter, { fontSize: 10 * zoom, color: colors.grayDark }]}>{songByTitle!.author}</Text>}
+						contentContainerStyle={styles.containerStyle}
+					/>
+				)
+			}
+
 			<View style={styles.wrapperSlide}>
 				<RowView style={[styles.slide, { backgroundColor: rgbaColor(colors.grayLight, 0.6) }]}>
 					<Slider

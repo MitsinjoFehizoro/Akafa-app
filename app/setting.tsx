@@ -2,17 +2,18 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { CustomText } from "@/components/CustomText";
 import { Footer } from "@/components/Footer";
 import { HeaderSimple } from "@/components/HeaderSimple";
-import { Congratulation } from "@/components/setting-screen/Congratulation";
+import { RowView } from "@/components/RowView";
+import { FeedBack } from "@/components/setting-screen/FeedBack";
 import { SettingComponent } from "@/components/setting-screen/SettingComponent";
 import { ThemeItem } from "@/components/setting-screen/ThemeItem";
 import { PADDING } from "@/constants/PADDING";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useUpdateData } from "@/hooks/useUpdateData";
-import { Button, Pressable, StyleSheet, View } from "react-native";
+import { ActivityIndicator, Button, Pressable, StyleSheet, View } from "react-native";
 
 export default function Setting() {
 	const colors = useThemeColor()
-	const { stateUpdateSong, stateUpdatePartitions, updateSongJson, updateParitions } = useUpdateData()
+	const { stateUpdateSong, stateUpdatePartitions, updateSongJson, updatePartitions } = useUpdateData()
 	return (
 		<CustomSafeAreaView>
 			<HeaderSimple title='kirakira' />
@@ -27,13 +28,25 @@ export default function Setting() {
 						<CustomText variant='body1' color='grayDark'>1. Activeo ny data.</CustomText>
 						<CustomText variant='body1' color='grayDark'>1. Tsindrio ny bokotra etsy ambany.</CustomText>
 					</View>
-					<Pressable
-						onPress={() => updateSongJson()}
-						style={[styles.button, { backgroundColor: colors.secondary }]}>
-						<CustomText variant='subtitle3' color='grayWhite'>Mettre à jour</CustomText>
-					</Pressable>
+					{
+						stateUpdatePartitions.isLoading || stateUpdateSong.isLoading ? (
+							<View style={[styles.button, { backgroundColor: colors.secondary, opacity: 0.8 }]}>
+								<ActivityIndicator color={colors.grayWhite} />
+							</View>
+						) : (
+							<Pressable
+								onPress={() => { updateSongJson(), updatePartitions() }}
+								style={[styles.button, { backgroundColor: colors.secondary }]}
+							>
+								<CustomText variant='subtitle3' color='grayWhite'>Haka hira vaovao</CustomText>
+							</Pressable>
+						)
+					}
 				</SettingComponent>
-				<Congratulation />
+				<FeedBack
+					stateUpdateSong={stateUpdateSong}
+					stateUpdatePartitions={stateUpdatePartitions}
+				/>
 			</View>
 			<Footer />
 		</CustomSafeAreaView>

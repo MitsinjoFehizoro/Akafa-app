@@ -9,10 +9,10 @@ import { useContextGetAllSongs } from "./useContextGetAllSongs";
 export function useUpdateData() {
 	const { getAllDataSongs } = useContextGetAllSongs()
 	const [stateUpdateSong, setStateUpdateSong] = useState<StateAxios>({
-		isLoading: false, isError: false
+		isLoading: false, isError: false, isFinish: false,
 	})
 	const [stateUpdatePartitions, setStateUpdatePartitions] = useState<StateAxios>({
-		isLoading: false, isError: false
+		isLoading: false, isError: false, isFinish: false,
 	})
 	const gitUrl = 'https://raw.githubusercontent.com/MitsinjoFehizoro/Data-Akafa/main/'
 
@@ -20,7 +20,7 @@ export function useUpdateData() {
 		console.log('Update song Json.')
 		const localSongJson = FileSystem.documentDirectory + 'songs/songs.json'
 		try {
-			setStateUpdateSong({ isLoading: true, isError: false })
+			setStateUpdateSong({ isLoading: true, isError: false, isFinish: false })
 			const response = await axios.get(gitUrl + 'git_songs.json')
 			const remoteDataSong: Song[] = response.data
 
@@ -39,22 +39,20 @@ export function useUpdateData() {
 			await FileSystem.deleteAsync(localSongJson, { idempotent: true })
 			await FileSystem.writeAsStringAsync(localSongJson, JSON.stringify(localDataSong.sort((a, b) => a.title.localeCompare(b.title))))
 			getAllDataSongs() //Rechargement des chansons
-			setStateUpdateSong({ ...stateUpdateSong, isError: false, message: countNewSong.toString() })
+			setStateUpdateSong({ isError: false, isLoading: false, isFinish: true, message: countNewSong.toString() })
 			console.log('Song json updated with success : ', countNewSong)
 		} catch (error) {
 			const message = 'Error during updated song json.'
-			setStateUpdateSong({ ...stateUpdateSong, isError: true, message: message })
+			setStateUpdateSong({ isError: true, isLoading: false, isFinish: true, message: message })
 			console.log(message, error)
-		} finally {
-			setStateUpdateSong({ ...stateUpdateSong, isLoading: false })
 		}
 	}
 
-	const updateParitions = async () => {
+	const updatePartitions = async () => {
 		console.log('Update partitions.')
 		const localPartitionsDirectory = FileSystem.documentDirectory + 'partitions/'
 		try {
-			setStateUpdatePartitions({ isLoading: true, isError: false })
+			setStateUpdatePartitions({ isLoading: true, isError: false, isFinish: false })
 			const response = await axios.get(gitUrl + 'git_partitions.zip', { responseType: 'arraybuffer' })
 			const partitionsZipData = Buffer.from(response.data, 'binary').toString('base64')
 			const partitionsJsZipData = await JSZip.loadAsync(partitionsZipData, { base64: true })
@@ -68,20 +66,18 @@ export function useUpdateData() {
 				else countNewPartitions++
 				await FileSystem.writeAsStringAsync(pathPdf, dataPdf, { encoding: FileSystem.EncodingType.Base64 })
 			}
-			setStateUpdatePartitions({ ...stateUpdatePartitions, isError: false, message: countNewPartitions.toString() })
+			setStateUpdatePartitions({ isError: false, isLoading: false, isFinish: true, message: countNewPartitions.toString() })
 			console.log('Partitions updated with success : ', countNewPartitions)
 		} catch (error) {
 			const message = 'Error during updated partitions.'
-			setStateUpdatePartitions({ ...stateUpdatePartitions, isError: true, message: message })
+			setStateUpdatePartitions({ isError: true, isLoading: false, isFinish: true, message: message })
 			console.log(message, error)
-		} finally {
-			setStateUpdatePartitions({ ...stateUpdatePartitions, isLoading: false })
 		}
 	}
 	return {
 		stateUpdateSong,
 		stateUpdatePartitions,
 		updateSongJson,
-		updateParitions
+		updatePartitions
 	}
 }

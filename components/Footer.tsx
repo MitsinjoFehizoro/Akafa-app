@@ -5,7 +5,6 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { CustomText } from "./CustomText";
 import { SHADOW } from "@/constants/SHADOW";
 import { Link } from "expo-router";
-import { useAndroidRipple } from "@/hooks/useAndroidRipple";
 
 export function Footer() {
 	return (
@@ -26,7 +25,7 @@ function MenuFooter({ icon, title }: Props) {
 	const colors = useThemeColor()
 	return (
 		<Link href={{ pathname: '/setting' }} asChild>
-			<Pressable android_ripple={{...useAndroidRipple()}} >
+			<Pressable >
 			<View style={styles.wrapper}>
 				<Entypo name={icon} size={16} color={colors.grayLight} />
 				<CustomText style={styles.text} variant='subtitle3' color='grayLight'>{title}</CustomText>
