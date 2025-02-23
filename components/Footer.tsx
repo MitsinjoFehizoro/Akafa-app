@@ -24,7 +24,7 @@ type Props = {
 function MenuFooter({ icon, title }: Props) {
 	const colors = useThemeColor()
 	return (
-		<Link href={{ pathname: '/info' }} asChild>
+		<Link href={{ pathname: '/setting' }} asChild>
 			<Pressable >
 			<View style={styles.wrapper}>
 				<Entypo name={icon} size={16} color={colors.grayLight} />
