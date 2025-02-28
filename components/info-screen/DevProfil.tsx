@@ -9,7 +9,7 @@ import { rgbaColor } from "@/tools/rgbaColor"
 export function DevProfil() {
 	const colors = useThemeColor()
 	return (
-		<SettingComponent style={{ gap: 20 }} title='Développeur'>
+		<SettingComponent style={{ gap: 20, paddingVertical :24, paddingHorizontal : 8 }} title='Développeur'>
 			<RowView gap={16}>
 				<Image
 					style={{ width: 50, height: 50 }}

@@ -7,23 +7,25 @@ import { FeedBack } from "@/components/setting-screen/FeedBack";
 import { SettingComponent } from "@/components/setting-screen/SettingComponent";
 import { ThemeItem } from "@/components/setting-screen/ThemeItem";
 import { PADDING } from "@/constants/PADDING";
+import { handleTheme } from "@/hooks/useContextTheme";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useUpdateData } from "@/hooks/useUpdateData";
+import { rgbaColor } from "@/tools/rgbaColor";
 import { ActivityIndicator, Button, Pressable, StyleSheet, View } from "react-native";
 
 export default function Setting() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	const { stateUpdateSong, stateUpdatePartitions, updateSongJson, updatePartitions } = useUpdateData()
 	return (
 		<CustomSafeAreaView>
 			<HeaderSimple title='kirakira' />
 			<View style={styles.container}>
-				<SettingComponent title='theme'>
-					<ThemeItem />
-					<ThemeItem isWithBorder={true} />
-					<ThemeItem />
+				<SettingComponent title='theme' style={{ paddingVertical: 8 }}>
+					<ThemeItem currentTheme='light' icon='light-up' />
+					<ThemeItem currentTheme='dark' icon='moon' style={[styles.theme, { borderColor: rgbaColor(colors.grayLight, 0.3) }]} />
+					<ThemeItem currentTheme='auto' icon='adjust' />
 				</SettingComponent>
-				<SettingComponent title="haka hira vaovao" style={{ gap: 24 }}>
+				<SettingComponent title="haka hira vaovao" style={{ gap: 24, paddingVertical: 24, paddingHorizontal: 8 }}>
 					<View style={{ gap: 16 }}>
 						<CustomText variant='body1' color='grayDark'>1. Activeo ny data.</CustomText>
 						<CustomText variant='body1' color='grayDark'>1. Tsindrio ny bokotra etsy ambany.</CustomText>
@@ -68,5 +70,10 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		height: 36,
 		borderRadius: 8
+	},
+	theme: {
+		borderStyle: 'solid',
+		borderTopWidth: 1,
+		borderBottomWidth: 1
 	}
 })

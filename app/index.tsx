@@ -12,7 +12,7 @@ import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
 import { handleTheme } from "@/hooks/useContextTheme";
 
 export default function Index() {
-	const { theme, colors, getTheme, toggleTheme } = handleTheme()
+	const { colors, getTheme } = handleTheme()
 	const { dataLoaded } = useLoadData()
 	const [loaded] = useFonts({
 		'audiowide': require('@/assets/fonts/Audiowide-Regular.ttf'),
@@ -34,16 +34,10 @@ export default function Index() {
 
 	return (
 		<CustomSafeAreaView>
-			<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
+			<StatusBar barStyle='light-content' backgroundColor={colors.secondary} />
 			<Header />
 			<Body />
-			<Pressable
-				onPress={() => toggleTheme('dark')}
-			>
-				<Text>{theme}</Text>
-			</Pressable>
-
-			{/* <Footer /> */}
+			<Footer />
 		</CustomSafeAreaView>
 	);
 }

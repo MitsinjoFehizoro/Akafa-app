@@ -15,7 +15,7 @@ export function SettingComponent({ style, title, children, ...rest }: Props) {
 			<View style={[styles.title, { borderColor: rgbaColor(colors.grayLight, 0.3) }]}>
 				<CustomText variant='subtitle2' color='secondary' style={{ textTransform: 'capitalize' }}>{title}</CustomText>
 			</View>
-			<View style={[style, styles.wrapper]} {...rest}>
+			<View style={[style]} {...rest}>
 				{children}
 			</View>
 		</View>
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 16,
 		paddingHorizontal: 16,
-		paddingBottom : 4
 	},
 	title: {
 		borderStyle: 'solid',
@@ -36,10 +35,6 @@ const styles = StyleSheet.create({
 		height: 36,
 		justifyContent: 'center',
 		paddingTop: 4,
-		paddingHorizontal : 8
-	},
-	wrapper: {
-		paddingHorizontal: 8,
-		paddingVertical: 24
+		paddingHorizontal: 8
 	}
 })

@@ -19,18 +19,16 @@ const ThemeContext = createContext<themeContext>({
 
 export const handleTheme = () => {
 	const { theme, setTheme, colors, setColors } = useContext(ThemeContext)
-
+	const colorTheme = useColorScheme()
 	const toggleTheme = async (value: 'light' | 'dark' | 'auto') => {
 		try {
 			if (value === 'auto') {
-				setTheme(useColorScheme() ?? 'light')
-				setColors(COLORS[useColorScheme() ?? 'light'])
+				setColors(COLORS[colorTheme ?? 'light'])
 			} else {
-				setTheme(value)
 				setColors(COLORS[value])
 			}
+			setTheme(value)
 			await AsyncStorage.setItem('theme', value)
-
 		} catch (error) {
 			console.log('Error of toggleTheme : ', error)
 		}
@@ -40,12 +38,11 @@ export const handleTheme = () => {
 		try {
 			const currentTheme = await AsyncStorage.getItem('theme')
 			if (currentTheme === 'auto') {
-				setTheme(useColorScheme() ?? 'light')
-				setColors(COLORS[useColorScheme() ?? 'light'])
+				setColors(COLORS[colorTheme ?? 'light'])
 			} else {
-				setTheme(currentTheme ? currentTheme as 'light' | 'dark' | 'auto' : 'light')
-				setColors(COLORS[currentTheme as 'light' | 'dark'])
+				setColors(COLORS[currentTheme ? currentTheme as 'light' | 'dark' : 'light'])
 			}
+			setTheme(currentTheme ? currentTheme as 'light' | 'dark' | 'auto' : 'light')
 		} catch (error) {
 			console.log('Error of getTheme : ', error)
 		}
