@@ -2,18 +2,17 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { HeaderSimple } from "@/components/HeaderSimple";
 import { useLocalSearchParams } from "expo-router";
 import Slider from '@react-native-community/slider';
-import { useThemeColor } from "@/hooks/useThemeColor";
-import { useCallback, useEffect, useState } from "react";
-import { FlatList, Pressable, StyleSheet, Text, TextProps, View } from "react-native";
+import { useEffect, useState } from "react";
+import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { Entypo } from "@expo/vector-icons";
 import { RowView } from "@/components/RowView";
 import { useAndroidRipple } from "@/hooks/useAndroidRipple";
 import { useGetSongs } from "@/hooks/useGetSongs";
-import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 export default function Lyrics() {
-	const colors = useThemeColor()
+	const { colors, isDark } = handleTheme()
 	const params = useLocalSearchParams()
 	const [zoom, setZoom] = useState(1)
 
@@ -35,7 +34,7 @@ export default function Lyrics() {
 						renderItem={({ item }) =>
 							<FlatLyrics keyValue={item.key} value={item.value} zoom={zoom} />
 						}
-						ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: colors.secondary }]}>{songByTitle!.title}</Text>}
+						ListHeaderComponent={<Text style={[styles.textHeader, { fontSize: 18 * zoom, color: isDark ? colors.grayWhite : colors.secondary }]}>{songByTitle!.title}</Text>}
 						ListFooterComponent={<Text style={[styles.textFooter, { fontSize: 10 * zoom, color: colors.grayDark }]}>{songByTitle!.author}</Text>}
 						contentContainerStyle={styles.containerStyle}
 					/>
@@ -43,7 +42,7 @@ export default function Lyrics() {
 			}
 
 			<View style={styles.wrapperSlide}>
-				<RowView style={[styles.slide, { backgroundColor: rgbaColor(colors.grayLight, 0.6) }]}>
+				<RowView style={[styles.slide, { backgroundColor: isDark ? rgbaColor(colors.secondary, 0.8) : rgbaColor(colors.grayLight, 0.6)}]}>
 					<Slider
 						style={{ width: '80%' }}
 						minimumValue={0.5}
@@ -73,12 +72,12 @@ type PropsFlatLyrics = {
 	zoom: number
 }
 function FlatLyrics({ keyValue, value, zoom }: PropsFlatLyrics) {
-	const colors = useThemeColor()
+	const { colors, isDark } = handleTheme()
 	return (
 		<View>
 			{
 				keyValue !== 'break' && (
-					<Text style={{ fontSize: 14 * zoom, color: colors.secondary, fontFamily: 'bakbakone', textTransform: 'capitalize' }}>{keyValue}</Text>
+					<Text style={{ fontSize: 14 * zoom, color: isDark ? colors.grayWhite : colors.secondary, fontFamily: 'bakbakone', textTransform: 'capitalize' }}>{keyValue}</Text>
 				)
 			}
 			{
@@ -120,6 +119,7 @@ const styles = StyleSheet.create({
 		borderRadius: 32,
 		alignItems: 'center',
 		justifyContent: 'center',
-		marginHorizontal: 16
+		marginHorizontal: 16,
+		overflow : 'hidden'
 	}
 })

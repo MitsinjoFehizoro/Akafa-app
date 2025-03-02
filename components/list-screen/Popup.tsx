@@ -1,5 +1,4 @@
 import { PADDING } from "@/constants/PADDING";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { Entypo } from "@expo/vector-icons";
 import { Modal, Pressable, StyleSheet, View } from "react-native";
 import { RowView } from "../RowView";
@@ -8,19 +7,20 @@ import { ItemAllSong } from "../index-screen/ItemAllSong";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { Logo, SecondLogo } from "../index-screen/Logo";
 import { PopupAndSong } from "@/tools/type";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 type PropsPopup = {
 	showPopupAndSelectedSong: PopupAndSong,
 	setShowPopupAndSetSelectedSong: (p: PopupAndSong) => void
 }
 export function Popup({ showPopupAndSelectedSong, setShowPopupAndSetSelectedSong }: PropsPopup) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<Modal transparent visible={showPopupAndSelectedSong.isShowPopup} animationType='slide'>
 			<Pressable style={styles.pressable} onPress={() => setShowPopupAndSetSelectedSong({ isShowPopup: false, selectedSong: '' })} />
 			<View style={styles.container}>
-				<Pressable style={[styles.geste, { backgroundColor: colors.grayWhite }]} onPress={() => setShowPopupAndSetSelectedSong({ isShowPopup: false, selectedSong: '' })} />
-				<View style={[styles.popup, { backgroundColor: colors.grayWhite }]}>
+				<Pressable style={[styles.geste, { backgroundColor: colors.background }]} onPress={() => setShowPopupAndSetSelectedSong({ isShowPopup: false, selectedSong: '' })} />
+				<View style={[styles.popup, { backgroundColor: colors.background }]}>
 					<View style={styles.logo}>
 						<SecondLogo />
 					</View>

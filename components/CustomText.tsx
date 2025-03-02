@@ -1,5 +1,5 @@
 import { COLORS } from "@/constants/COLORS";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { handleTheme } from "@/hooks/useContextTheme";
 import { StyleSheet, Text, TextProps } from "react-native";
 
 type Props = TextProps & {
@@ -7,7 +7,7 @@ type Props = TextProps & {
 	color?: keyof typeof COLORS['light']
 }
 export function CustomText({ style, variant, color, ...rest }: Props) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return <Text style={[style, styles[variant ?? 'body1'], { color: colors[color ?? 'grayWhite'] }]} {...rest} />
 }
 const styles = StyleSheet.create({

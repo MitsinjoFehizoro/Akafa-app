@@ -1,18 +1,18 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import { RowView } from "./RowView";
 import { Entypo, FontAwesome6 } from "@expo/vector-icons";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { CustomText } from "./CustomText";
 import { router } from "expo-router";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { PADDING } from "@/constants/PADDING";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = {
 	title?: string,
 	subTitle?: string
 }
 export function HeaderSimple({ title, subTitle }: Props) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<RowView gap={8} style={[styles.container, { backgroundColor: colors.primary, height: subTitle ? 64 : 56, }]}>
 			<Pressable

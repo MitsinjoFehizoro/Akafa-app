@@ -1,14 +1,12 @@
-import { Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { StatusBar, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts } from "expo-font";
-import { useContext, useEffect } from "react";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import {  useEffect } from "react";
 import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { Header } from "@/components/index-screen/Header";
 import { Body } from "@/components/index-screen/Body";
 import { Footer } from "@/components/Footer";
 import { useLoadData } from "@/hooks/useLoadData";
-import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
 import { handleTheme } from "@/hooks/useContextTheme";
 
 export default function Index() {
@@ -34,10 +32,10 @@ export default function Index() {
 
 	return (
 		<CustomSafeAreaView>
-			<StatusBar barStyle='light-content' backgroundColor={colors.secondary} />
+			<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
 			<Header />
 			<Body />
-			<Footer />
+			<Footer menuActif='home' />
 		</CustomSafeAreaView>
 	);
 }

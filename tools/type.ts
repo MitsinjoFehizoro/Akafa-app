@@ -15,3 +15,4 @@ export type StateAxios = {
 	isFinish: boolean,
 	message?: string
 }
+

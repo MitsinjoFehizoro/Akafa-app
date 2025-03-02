@@ -1,19 +1,19 @@
-import { useThemeColor } from "@/hooks/useThemeColor"
 import { Entypo, FontAwesome, FontAwesome6 } from "@expo/vector-icons"
 import { StyleSheet, TextInput, View } from "react-native"
 import { RowView } from "../RowView"
+import { handleTheme } from "@/hooks/useContextTheme"
 
 type Props = {
 	value: string,
 	onChange: (v: string) => void
 }
 export function SearchBar({ value, onChange }: Props) {
-	const colors = useThemeColor()
+const { colors } = handleTheme()
 	return (
-		<RowView gap={4} style={[styles.container, { backgroundColor: colors.grayWhite }]}>
+		<RowView gap={8} style={[styles.container, { backgroundColor: colors.onSecondary }]}>
 			<FontAwesome name='search' size={12} color={colors.primary} />
 			<TextInput
-				style={styles.input}
+				style={[styles.input, {color : colors.grayDark}]}
 				value={value}
 				onChangeText={onChange}
 				placeholder="Hitady..."

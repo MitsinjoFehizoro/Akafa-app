@@ -14,7 +14,7 @@ export const SONG_CATEGORY = {
 	3: {
 		icon: 'key',
 		title: 'Vavaka sy Fangatahana'
-	},
+	},	
 	4: {
 		icon: 'flag',
 		title: 'Faneva'

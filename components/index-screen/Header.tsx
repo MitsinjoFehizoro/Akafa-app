@@ -1,4 +1,3 @@
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { StyleSheet } from "react-native";
 import { PADDING } from "@/constants/PADDING";
 import { CountSong } from "./CountSoung";
@@ -7,9 +6,10 @@ import { Logo } from "./Logo";
 import { useEffect } from "react";
 import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
 import { useGetSongs } from "@/hooks/useGetSongs";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 export function Header() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 
 	const { allDataSongs, getAllDataSongs } = useContextGetAllSongs()
 	useEffect(() => {

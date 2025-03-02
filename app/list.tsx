@@ -7,8 +7,8 @@ import { SearchBar } from "@/components/list-screen/SearchBar";
 import { PADDING } from "@/constants/PADDING";
 import { SONG_CATEGORY } from "@/constants/SONG_CATEGORY";
 import { useContextGetAllSongs } from "@/hooks/useContextGetAllSongs";
+import { handleTheme } from "@/hooks/useContextTheme";
 import { useGetSongs } from "@/hooks/useGetSongs";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { PopupAndSong, Song } from "@/tools/type";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import { FlatList, Keyboard, StyleSheet, View } from "react-native";
 
 export default function List() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	const params = useLocalSearchParams()
 
 	//Song filter
@@ -36,7 +36,7 @@ export default function List() {
 		} else {
 			setAllSong(params.type.toString() === 'solfa' ? songsWithPartition : allDataSongs)
 		}
-	}, [allDataSongs, songsWithPartition])
+	}, [allDataSongs, songsWithPartition, params.type])
 
 	//Search
 	const [songs, setSongs] = useState<Song[]>([])
@@ -87,7 +87,7 @@ export default function List() {
 			{
 				songs.length === 0 && searchValue ? (
 					<View style={styles.breakSearch}>
-						<FontAwesome5 name='searchengin' size={72} color={rgbaColor(colors.secondary, 0.4)} />
+						<FontAwesome5 name='searchengin' size={72} color={rgbaColor(colors.grayLight, 0.3)} />
 					</View>
 				) : (
 					<FlatList
@@ -102,7 +102,7 @@ export default function List() {
 			}
 			{
 				!isShowKeyboard && (
-					<Footer />
+					<Footer menuActif={params.type.toString()} />
 				)
 			}
 			<Popup showPopupAndSelectedSong={showPopupAndSelectedSong} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />

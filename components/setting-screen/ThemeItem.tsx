@@ -1,5 +1,3 @@
-import { useThemeColor } from "@/hooks/useThemeColor";
-import { rgbaColor } from "@/tools/rgbaColor";
 import { Pressable, StyleSheet, View, ViewProps } from "react-native";
 import { RowView } from "../RowView";
 import { Entypo } from "@expo/vector-icons";

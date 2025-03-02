@@ -1,19 +1,19 @@
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { CustomText } from "../CustomText";
 import { Children, ReactNode } from "react";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = ViewProps & {
 	title: string,
 	children: ReactNode
 }
 export function SettingComponent({ style, title, children, ...rest }: Props) {
-	const colors = useThemeColor()
+	const { colors, isDark } = handleTheme()
 	return (
 		<View style={[styles.component, { borderColor: rgbaColor(colors.grayLight, 0.3) }]}  >
 			<View style={[styles.title, { borderColor: rgbaColor(colors.grayLight, 0.3) }]}>
-				<CustomText variant='subtitle2' color='secondary' style={{ textTransform: 'capitalize' }}>{title}</CustomText>
+				<CustomText variant='subtitle2' color={isDark ? 'primary' : 'secondary'} style={{ textTransform: 'capitalize' }}>{title}</CustomText>
 			</View>
 			<View style={[style]} {...rest}>
 				{children}

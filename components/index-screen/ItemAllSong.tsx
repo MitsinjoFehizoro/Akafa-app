@@ -1,4 +1,3 @@
-import { useThemeColor } from "@/hooks/useThemeColor"
 import { RowView } from "../RowView"
 import { Entypo } from "@expo/vector-icons"
 import { CustomText } from "../CustomText"
@@ -6,6 +5,7 @@ import { Pressable, StyleSheet, View } from "react-native"
 import { Link } from "expo-router"
 import { rgbaColor } from "@/tools/rgbaColor"
 import { useAndroidRipple } from "@/hooks/useAndroidRipple"
+import { handleTheme } from "@/hooks/useContextTheme"
 
 type Props = {
 	type: string,
@@ -15,7 +15,7 @@ type Props = {
 	icon: keyof typeof Entypo.glyphMap
 }
 export function ItemAllSong({ type, count, icon, pathname, songTitle }: Props) {
-	const colors = useThemeColor()
+const { colors, isDark } = handleTheme()
 	return (
 		<Link href={{ pathname: pathname, params: { type: type, songTitle: songTitle } }} asChild>
 			<Pressable
@@ -23,8 +23,8 @@ export function ItemAllSong({ type, count, icon, pathname, songTitle }: Props) {
 			>
 				<RowView style={[styles.item, { borderColor: rgbaColor(colors.grayLight, 0.4) }]}>
 					<RowView gap={8}>
-						<Entypo name={icon} size={16} color={colors.secondary} />
-						<CustomText variant='subtitle2' color='secondary' style={{ marginTop: 3, textTransform: 'capitalize' }} >{type}</CustomText>
+						<Entypo name={icon} size={16} color={isDark ? colors.grayLight : colors.secondary} />
+						<CustomText variant='subtitle2' color={isDark ? 'grayLight' : 'secondary'} style={{ marginTop: 3, textTransform: 'capitalize' }} >{type}</CustomText>
 					</RowView>
 					{
 						count ? (

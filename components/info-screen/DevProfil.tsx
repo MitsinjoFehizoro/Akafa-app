@@ -1,13 +1,13 @@
-import { useThemeColor } from "@/hooks/useThemeColor"
 import { SettingComponent } from "../setting-screen/SettingComponent"
 import { RowView } from "../RowView"
 import { Image, StyleSheet, View } from "react-native"
 import { LinkProfil } from "./LinkProfil"
 import { CustomText } from "../CustomText"
 import { rgbaColor } from "@/tools/rgbaColor"
+import { handleTheme } from "@/hooks/useContextTheme"
 
 export function DevProfil() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<SettingComponent style={{ gap: 20, paddingVertical :24, paddingHorizontal : 8 }} title='Développeur'>
 			<RowView gap={16}>

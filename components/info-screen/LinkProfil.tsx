@@ -1,14 +1,14 @@
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { CustomText } from "../CustomText";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = ViewProps & {
 	icon: keyof typeof FontAwesome.glyphMap
 	title: string
 }
 export function LinkProfil({ style, icon, title, ...rest }: Props) {
-	const colors = useThemeColor()
+const { colors } = handleTheme()
 	const customTitle = title.split('/')
 	return (
 		<View style={[style, styles.container]} {...rest}>

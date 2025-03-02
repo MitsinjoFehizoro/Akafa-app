@@ -1,14 +1,14 @@
-import { useThemeColor } from "@/hooks/useThemeColor"
 import { StyleSheet, View } from "react-native"
 import { CustomText } from "../CustomText"
 import { Entypo } from "@expo/vector-icons"
+import { handleTheme } from "@/hooks/useContextTheme"
 
 type Props = {
 	count: number,
 	icon: keyof typeof Entypo.glyphMap
 }
 export function CountSong({ count, icon }: Props) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<View style={styles.count}>
 			<View style={[styles.caption, { backgroundColor: colors.secondary }]}>

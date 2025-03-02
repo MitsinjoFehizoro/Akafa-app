@@ -1,17 +1,17 @@
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
 import { CustomText } from "../CustomText";
 import { StateAxios } from "@/tools/type";
 import { useEffect, useState } from "react";
 import { SecondLogo } from "../index-screen/Logo";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = {
 	stateUpdateSong: StateAxios,
 	stateUpdatePartitions: StateAxios
 }
 export function FeedBack({ stateUpdateSong, stateUpdatePartitions }: Props) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	const [feedBack, setFeedBack] = useState({
 		isError: false,
 		message: '',
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
 		gap: 16,
 		justifyContent: 'center',
 		alignItems: 'center',
-		height: 194
+		height: 136,
+		marginBottom: 86
 	},
 	image: {
 		width: 36,

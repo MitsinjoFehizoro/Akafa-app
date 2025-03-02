@@ -1,23 +1,23 @@
-import { useThemeColor } from "@/hooks/useThemeColor"
 import { Image, StyleSheet, View } from "react-native"
-import { ThirdLogo } from "../index-screen/Logo"
+import { SecondLogo, ThirdLogo } from "../index-screen/Logo"
 import { CustomText } from "../CustomText"
 import { RowView } from "../RowView"
 import { LinkProfil } from "./LinkProfil"
 import { rgbaColor } from "@/tools/rgbaColor"
+import { handleTheme } from "@/hooks/useContextTheme"
 
 export function AkafaProfil() {
-	const colors = useThemeColor()
+	const { colors, isDark } = handleTheme()
 	return (
 		<View style={styles.container}>
-			<View style={[styles.pdp, { backgroundColor: colors.grayWhite }]}>
+			<View style={[styles.pdp, { backgroundColor: colors.background }]}>
 				<Image
-				  style={{ width: 120, height: 120 }}
+					style={{ width: 120, height: 120 }}
 					source={require('@/assets/images/akafa.png')}
 				/>
 			</View>
-			<View style={[styles.wrapper, { backgroundColor: colors.grayWhite, borderColor: rgbaColor(colors.grayLight, 0.3) }]}>
-				<ThirdLogo />
+			<View style={[styles.wrapper, { backgroundColor: colors.background, borderColor: rgbaColor(colors.grayLight, 0.3) }]}>
+				{ isDark ? <SecondLogo /> : <ThirdLogo /> }
 				<View style={{ width: 210 }}>
 					<CustomText style={{ textAlign: 'center' }} variant='subtitle2' color='grayLight'>Antsan'i KArmela FAnantenana Ambatolampy</CustomText>
 				</View>

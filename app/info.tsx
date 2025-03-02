@@ -7,22 +7,22 @@ import { AkafaProfil } from "@/components/info-screen/AkafaProfil";
 import { DevProfil } from "@/components/info-screen/DevProfil";
 import { LinkProfil } from "@/components/info-screen/LinkProfil";
 import { RowView } from "@/components/RowView";
-import { SettingComponent } from "@/components/setting-screen/SettingComponent";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { handleTheme } from "@/hooks/useContextTheme";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { useEffect } from "react";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Info() {
-	const colors = useThemeColor()
-	const insets = useSafeAreaInsets();
+	const { colors } = handleTheme()
+	const insets = useSafeAreaInsets()
 	return (
 		<CustomSafeAreaView>
 			<RowView style={[styles.header, { backgroundColor: colors.primary, top: insets.top }]}>
 				<Pressable
-					style={[styles.back, {backgroundColor : colors.primary}]}
+					style={[styles.back, { backgroundColor: colors.primary }]}
 					onPress={router.back}
 					android_ripple={{ color: rgbaColor(colors.secondary, 0.3), foreground: true }}
 				>
@@ -36,7 +36,7 @@ export default function Info() {
 					<DevProfil />
 				</View>
 			</ScrollView>
-			<Footer />
+			<Footer menuActif="info"/>
 		</CustomSafeAreaView>
 	)
 }
@@ -48,14 +48,14 @@ const styles = StyleSheet.create({
 	header: {
 		position: 'absolute',
 		width: '100%',
-		paddingBottom : 56,
+		paddingBottom: 56,
 		justifyContent: 'flex-end'
 	},
 	back: {
 		position: 'absolute',
-		top : 8,
-		left : 16,
-		zIndex:1,
+		top: 8,
+		left: 16,
+		zIndex: 1,
 		width: 32, height: 32,
 		borderRadius: 32,
 		alignItems: 'center',

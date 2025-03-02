@@ -1,11 +1,11 @@
 
 import { RowView } from "../RowView";
 import { CustomText } from "../CustomText";
-import { useThemeColor } from "@/hooks/useThemeColor";
 import { StyleSheet, Text, View, ViewProps } from "react-native";
+import { handleTheme } from "@/hooks/useContextTheme";
 
 export function Logo() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<RowView>
 			<View style={[styles.wrapper, { backgroundColor: colors.secondary }]}>
@@ -16,7 +16,7 @@ export function Logo() {
 	)
 }
 export function SecondLogo() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<RowView>
 			<View style={[styles.wrapper, { backgroundColor: colors.primary }]}>
@@ -28,7 +28,7 @@ export function SecondLogo() {
 }
 
 export function ThirdLogo() {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<RowView>
 			<View style={[styles.wrapper, { backgroundColor: colors.secondary }]}>
@@ -40,7 +40,7 @@ export function ThirdLogo() {
 }
 
 export function BigLogo({ style, ...rest }: ViewProps) {
-	const colors = useThemeColor()
+	const { colors } = handleTheme()
 	return (
 		<View style={[style, styles.container]} {...rest}>
 			<View style={[styles.bigWrapper, { backgroundColor: colors.secondary }]} />
