@@ -1,4 +1,4 @@
-import {  StatusBar, View } from "react-native";
+import { StatusBar, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
@@ -12,7 +12,7 @@ import { Loading } from "@/components/index-screen/Loading";
 
 export default function Index() {
 	const { colors, getTheme } = handleTheme()
-	const { dataLoaded } = useLoadData()
+	const { isDataLoading, percentage } = useLoadData()
 	const [loaded] = useFonts({
 		'audiowide': require('@/assets/fonts/Audiowide-Regular.ttf'),
 		'bakbakone': require('@/assets/fonts/BakbakOne-Regular.ttf')
@@ -25,18 +25,27 @@ export default function Index() {
 	useEffect(() => {
 		if (loaded) SplashScreen.hideAsync();
 		else SplashScreen.preventAutoHideAsync()
-	}, [loaded, dataLoaded]);
+	}, [loaded]);
 
 	if (!loaded) {
-		return <View />
+		return <View style={{ flex: 1, backgroundColor: colors.background }} />
 	}
-	
+
 	return (
 		<CustomSafeAreaView>
-			<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
-			<Header />
-			<Body />
-			<Footer menuActif='home' />
+			{
+				isDataLoading ? (
+					<Loading percentage={percentage} />
+				) : (
+					<View style={{ flex: 1 }}>
+						<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
+						<Header />
+						<Body />
+						<Footer menuActif='home' />
+					</View>
+				)
+			}
+
 		</CustomSafeAreaView>
 	);
 }

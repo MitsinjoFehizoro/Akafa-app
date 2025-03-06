@@ -4,20 +4,23 @@ import { handleTheme } from "@/hooks/useContextTheme"
 import { ThirdLogo } from "./Logo"
 import { CustomText } from "../CustomText"
 
-export function Loading() {
+type Props = {
+	percentage: number
+}
+export function Loading({ percentage }: Props) {
 	const { colors } = handleTheme()
 	return (
-		<CustomSafeAreaView>
+		<View style={{flex : 1}}>
 			<StatusBar barStyle='light-content' backgroundColor={colors.secondary} />
 			<View style={[styles.container, { backgroundColor: colors.secondary }]}>
 				<ThirdLogo />
 				<View style={styles.loading}>
-					<ActivityIndicator style={{marginBottom : 16}} size='large' color={colors.grayWhite} />
+					<ActivityIndicator style={{ marginBottom: 16 }} size='large' color={colors.grayWhite} />
 					<CustomText variant='body2' color='grayWhite' >Mahandrasa kely...</CustomText>
-					<CustomText variant='subtitle1' color='grayWhite'>25%</CustomText>
+					<CustomText variant='subtitle1' color='grayWhite'>{percentage}%</CustomText>
 				</View>
 			</View>
-		</CustomSafeAreaView>
+		</View>
 	)
 }
 const styles = StyleSheet.create({

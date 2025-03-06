@@ -4,62 +4,76 @@ import * as FileSystem from "expo-file-system";
 import JSZip from 'jszip';
 import { useEffect, useState } from 'react';
 import songJson from '../assets/data/songs.json'
+import { useContextGetAllSongs } from './useContextGetAllSongs';
+import { Song } from '@/tools/type';
 
 export const useLoadData = () => {
-	const [dataLoaded, setDataLoaded] = useState({ song: false, partition: false })
-
+	const [isDataLoading, setIsDataLoading] = useState(true)
+	const [percentage, setPercentage] = useState<string>('0.00')
+	const songDirectory = FileSystem.documentDirectory + 'songs/'
+	const partitionDirectory = FileSystem.documentDirectory + 'partitions/'
+	let dataLength = 0
 	const loadSongJson = async () => {
 		console.log('Load song json.')
-		const songDirectory = FileSystem.documentDirectory + 'songs/'
 		try {
-			const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
-			if (infoSongDirectory.exists) {
-				return console.log('Song json alredy loaded.')
-			}
 			await FileSystem.makeDirectoryAsync(songDirectory)
 			await FileSystem.writeAsStringAsync(songDirectory + 'songs.json', JSON.stringify(songJson))
+			dataLength = (JSON.parse(await FileSystem.readAsStringAsync(songDirectory + 'songs.json')) as Song[]).filter(s => s.isPartition === true).length
 			console.log('Song json loaded with success.')
 		} catch (error) {
 			console.error('Error of loaded song json : ', error)
-		} finally {
-			setDataLoaded({ ...dataLoaded, song: true })
 		}
 	}
+
 	const loadPartitions = async () => {
 		console.log('Load partitions.')
 		try {
+			setIsDataLoading(true)
 			const partitionArchive = Asset.fromModule(require('@/assets/data/partitions.zip'))
-			const partitionDirectory = FileSystem.documentDirectory + 'partitions/'
-			const infoPartitionDirectory = await FileSystem.getInfoAsync(partitionDirectory)
-			if (infoPartitionDirectory.exists) {
-				return console.log('Partitions alredy loaded.')
-			}
+			setPercentage(0.1.toFixed(2))
 			await partitionArchive.downloadAsync()
+			setPercentage(0.2.toFixed(2))
 			await FileSystem.makeDirectoryAsync(partitionDirectory)
+			setPercentage(0.3.toFixed(2))
 			const partitionArchiveSystem = FileSystem.documentDirectory + 'partitions.zip'
 			await FileSystem.copyAsync({
 				from: partitionArchive.localUri!,
 				to: partitionArchiveSystem
 			})
+			setPercentage(0.5.toFixed(2))
 			const partitionZipData = await FileSystem.readAsStringAsync(partitionArchiveSystem, { encoding: FileSystem.EncodingType.Base64 })
+			setPercentage(0.7.toFixed(2))
 			const partitionJsZip = await JSZip.loadAsync(partitionZipData, { base64: true })
+			setPercentage(1.0.toFixed(2))
 			let count = 0
 			for (const [relativePath, file] of Object.entries(partitionJsZip.files)) {
 				count++
 				const dataPdf = await file.async('base64')
 				const path = partitionDirectory + relativePath
 				await FileSystem.writeAsStringAsync(path, dataPdf, { encoding: FileSystem.EncodingType.Base64 })
-				console.log(count)
+				setPercentage(((count * 100) / 112).toFixed(2))
 			}
 			await FileSystem.deleteAsync(partitionArchiveSystem)
 
 			const partitionDirectoryContent = await FileSystem.readDirectoryAsync(partitionDirectory)
 			console.log(`${partitionDirectoryContent.length} partitions loaded with success.`)
+			setIsDataLoading(false)
 		} catch (error) {
 			console.error('Error of loaded partitions : ', error)
-		} finally {
-			setDataLoaded({ ...dataLoaded, partition: true })
 		}
+	}
+
+	const loadData = async () => {
+		const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
+		const infoPartitionDirectory = await FileSystem.getInfoAsync(partitionDirectory)
+		if (infoSongDirectory.exists && infoPartitionDirectory.exists) {
+			setIsDataLoading(false)
+			return console.log('Songs and partitions already loaded.')
+		}
+
+		loadSongJson()
+		loadPartitions()
+
 	}
 
 	const clearFileSystem = async (directoryUri: string) => {
@@ -84,10 +98,11 @@ export const useLoadData = () => {
 
 	useEffect(() => {
 		// clearFileSystem(FileSystem.documentDirectory!)
-		loadSongJson()
-		loadPartitions()
+		loadData()
 	}, [])
+
 	return {
-		dataLoaded
+		isDataLoading,
+		percentage
 	}
 }
