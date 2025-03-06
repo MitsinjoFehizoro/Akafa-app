@@ -7,6 +7,7 @@ import { Link } from "expo-router";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { handleTheme } from "@/hooks/useContextTheme";
 import { useAndroidRipple } from "@/hooks/useAndroidRipple";
+import { memo } from "react";
 
 
 type Props = {
@@ -14,13 +15,13 @@ type Props = {
 	song: Song,
 	setShowPopupAndSetSelectedSong: (p: PopupAndSong) => void
 }
-export function ListItem({ type, song, setShowPopupAndSetSelectedSong }: Props) {
+function ListItem({ type, song, setShowPopupAndSetSelectedSong }: Props) {
 	const { colors, isDark } = handleTheme()
 	return (
 		<Link href={{ pathname: type === 'tononkira' ? '/lyrics' : '/partition', params: { songTitle: song.title, type: type } }} asChild >
 			<Pressable
 				style={{ borderRadius: 8, overflow: isDark ? 'hidden' : 'visible' }}
-				android_ripple={{...useAndroidRipple()}}
+				android_ripple={{ ...useAndroidRipple() }}
 			>
 				<RowView style={[styles.row, { backgroundColor: colors.onSecondary, elevation: isDark ? 0 : 4 }]}>
 					<CustomText style={{ width: '95%' }} numberOfLines={1} ellipsizeMode='tail' color='grayDark'>{song.title}</CustomText>
@@ -40,6 +41,7 @@ export function ListItem({ type, song, setShowPopupAndSetSelectedSong }: Props) 
 		</Link >
 	)
 }
+export const MemorizedListItem = memo(ListItem)
 const styles = StyleSheet.create({
 	row: {
 		height: 36,

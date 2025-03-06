@@ -43,10 +43,13 @@ export const useLoadData = () => {
 			})
 			const partitionZipData = await FileSystem.readAsStringAsync(partitionArchiveSystem, { encoding: FileSystem.EncodingType.Base64 })
 			const partitionJsZip = await JSZip.loadAsync(partitionZipData, { base64: true })
+			let count = 0
 			for (const [relativePath, file] of Object.entries(partitionJsZip.files)) {
+				count++
 				const dataPdf = await file.async('base64')
 				const path = partitionDirectory + relativePath
 				await FileSystem.writeAsStringAsync(path, dataPdf, { encoding: FileSystem.EncodingType.Base64 })
+				console.log(count)
 			}
 			await FileSystem.deleteAsync(partitionArchiveSystem)
 

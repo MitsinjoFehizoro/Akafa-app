@@ -1,7 +1,7 @@
 import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { Footer } from "@/components/Footer";
 import { HeaderSimple } from "@/components/HeaderSimple";
-import { ListItem } from "@/components/list-screen/ListItem";
+import { MemorizedListItem } from "@/components/list-screen/ListItem";
 import { Popup } from "@/components/list-screen/Popup";
 import { SearchBar } from "@/components/list-screen/SearchBar";
 import { PADDING } from "@/constants/PADDING";
@@ -92,9 +92,9 @@ export default function List() {
 				) : (
 					<FlatList
 						data={songs}
-						keyExtractor={(_, index) => index.toString()}
+						keyExtractor={(item) => item.title.toString()}
 						renderItem={({ item }) =>
-							<ListItem song={item} type={params.type.toString()} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />
+							<MemorizedListItem song={item} type={params.type.toString()} setShowPopupAndSetSelectedSong={setShowPopupAndSetSelectedSong} />
 						}
 						contentContainerStyle={{ padding: 16, gap: 8, paddingBottom: 64 }}
 					/>

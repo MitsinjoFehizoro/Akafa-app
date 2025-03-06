@@ -31,10 +31,10 @@ export function ThirdLogo() {
 	const { colors } = handleTheme()
 	return (
 		<RowView>
-			<View style={[styles.wrapper, { backgroundColor: colors.secondary }]}>
-				<CustomText style={styles.a} variant='title1' color='primary' >A</CustomText>
+			<View style={[styles.wrapper, { backgroundColor: colors.primary }]}>
+				<CustomText style={styles.a} variant='title1' color='secondary' >A</CustomText>
 			</View>
-			<CustomText style={{ alignSelf: 'flex-end' }} variant='title1' color='primary' >kafa</CustomText>
+			<CustomText style={{ alignSelf: 'flex-end' }} variant='title1' color='grayWhite' >kafa</CustomText>
 		</RowView>
 	)
 }

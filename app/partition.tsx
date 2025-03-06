@@ -8,7 +8,7 @@ import { PADDING } from "@/constants/PADDING";
 
 export default function Partition() {
 	const params = useLocalSearchParams()
-	const songPartiton = params.songTitle.toString().toLocaleLowerCase().replaceAll(' ', '_') + '.pdf'
+	const songPartiton = params.songTitle.toString().toLocaleLowerCase().replaceAll(' ', '_').replaceAll("'", '_') + '.pdf'
 	const partitionUrl = `${FileSystem.documentDirectory}partitions/${songPartiton}`
 
 	return (
