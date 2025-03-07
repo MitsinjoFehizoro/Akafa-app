@@ -1,4 +1,4 @@
-import { Entypo, FontAwesome } from "@expo/vector-icons";
+import {  FontAwesome } from "@expo/vector-icons";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { CustomText } from "../CustomText";
 import { handleTheme } from "@/hooks/useContextTheme";

@@ -1,5 +1,5 @@
 import { handleTheme } from "@/hooks/useContextTheme";
-import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import { SafeAreaView,  StyleSheet } from "react-native";
 import { SafeAreaViewProps } from "react-native-safe-area-context";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

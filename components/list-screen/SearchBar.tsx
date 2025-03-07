@@ -1,5 +1,5 @@
-import { Entypo, FontAwesome, FontAwesome6 } from "@expo/vector-icons"
-import { StyleSheet, TextInput, View } from "react-native"
+import { FontAwesome } from "@expo/vector-icons"
+import { StyleSheet, TextInput } from "react-native"
 import { RowView } from "../RowView"
 import { handleTheme } from "@/hooks/useContextTheme"
 

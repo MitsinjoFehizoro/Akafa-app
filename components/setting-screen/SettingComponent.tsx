@@ -1,7 +1,7 @@
 import { rgbaColor } from "@/tools/rgbaColor";
 import { StyleSheet, View, ViewProps } from "react-native";
 import { CustomText } from "../CustomText";
-import { Children, ReactNode } from "react";
+import {  ReactNode } from "react";
 import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = ViewProps & {

@@ -4,7 +4,6 @@ import * as FileSystem from "expo-file-system";
 import JSZip from 'jszip';
 import { useEffect, useState } from 'react';
 import songJson from '../assets/data/songs.json'
-import { useContextGetAllSongs } from './useContextGetAllSongs';
 import { Song } from '@/tools/type';
 
 export const useLoadData = () => {

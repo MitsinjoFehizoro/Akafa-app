@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import { RowView } from "./RowView";
-import { Entypo, FontAwesome6 } from "@expo/vector-icons";
+import {  FontAwesome6 } from "@expo/vector-icons";
 import { CustomText } from "./CustomText";
 import { router } from "expo-router";
 import { rgbaColor } from "@/tools/rgbaColor";

@@ -1,11 +1,8 @@
-import { PADDING } from "@/constants/PADDING";
-import { Entypo } from "@expo/vector-icons";
+
 import { Modal, Pressable, StyleSheet, View } from "react-native";
-import { RowView } from "../RowView";
-import { CustomText } from "../CustomText";
 import { ItemAllSong } from "../index-screen/ItemAllSong";
 import { rgbaColor } from "@/tools/rgbaColor";
-import { Logo, SecondLogo } from "../index-screen/Logo";
+import { SecondLogo } from "../index-screen/Logo";
 import { PopupAndSong } from "@/tools/type";
 import { handleTheme } from "@/hooks/useContextTheme";
 

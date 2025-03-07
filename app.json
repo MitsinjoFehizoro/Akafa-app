@@ -20,7 +20,7 @@
 				"foregroundImage": "./assets/images/adaptive-icon1.png",
 				"backgroundColor": "#00377C"
 			},
-			"package": "com.MitsinjoFehizoro.Akafaapp"
+			"package": "com.anonymous.Akafaapp"
 		},
 		"web": {
 			"bundler": "metro",
@@ -41,9 +41,7 @@
 					}
 				}
 			],
-			"expo-font",
-			"@config-plugins/react-native-blob-util",
-			"@config-plugins/react-native-pdf"
+			"expo-font"
 		],
 		"experiments": {
 			"typedRoutes": true

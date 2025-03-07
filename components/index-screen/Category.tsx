@@ -1,9 +1,8 @@
-import { Entypo, FontAwesome5 } from "@expo/vector-icons"
+import { Entypo } from "@expo/vector-icons"
 import { Pressable, StyleSheet, View } from "react-native"
 import { CustomText } from "../CustomText"
 import { SONG_CATEGORY } from "@/constants/SONG_CATEGORY"
 import { Link } from "expo-router"
-import { useAndroidRipple } from "@/hooks/useAndroidRipple"
 import { handleTheme } from "@/hooks/useContextTheme"
 
 type Props = {

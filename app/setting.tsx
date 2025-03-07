@@ -2,7 +2,6 @@ import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
 import { CustomText } from "@/components/CustomText";
 import { Footer } from "@/components/Footer";
 import { HeaderSimple } from "@/components/HeaderSimple";
-import { RowView } from "@/components/RowView";
 import { FeedBack } from "@/components/setting-screen/FeedBack";
 import { SettingComponent } from "@/components/setting-screen/SettingComponent";
 import { ThemeItem } from "@/components/setting-screen/ThemeItem";

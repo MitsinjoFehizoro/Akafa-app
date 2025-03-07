@@ -12,7 +12,7 @@ import { useGetSongs } from "@/hooks/useGetSongs";
 import { handleTheme } from "@/hooks/useContextTheme";
 
 export function Body() {
-	const { theme, colors, isDark } = handleTheme()
+	const {  colors, isDark } = handleTheme()
 	const { allDataSongs } = useContextGetAllSongs()
 	const { songsWithPartition, getSongsWithPartition } = useGetSongs()
 	useEffect(() => {

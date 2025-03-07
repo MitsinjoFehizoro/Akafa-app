@@ -3,7 +3,6 @@ import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
 import { CustomText } from "../CustomText";
 import { StateAxios } from "@/tools/type";
 import { useEffect, useState } from "react";
-import { SecondLogo } from "../index-screen/Logo";
 import { handleTheme } from "@/hooks/useContextTheme";
 
 type Props = {
