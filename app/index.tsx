@@ -1,4 +1,4 @@
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
@@ -38,14 +38,12 @@ export default function Index() {
 					<Loading percentage={percentage} />
 				) : (
 					<View style={{ flex: 1 }}>
-						<StatusBar barStyle='light-content' backgroundColor={colors.primary} />
 						<Header />
 						<Body />
 						<Footer menuActif='home' />
 					</View>
 				)
 			}
-
 		</CustomSafeAreaView>
 	);
 }

@@ -20,7 +20,7 @@
 				"foregroundImage": "./assets/images/adaptive-icon1.png",
 				"backgroundColor": "#00377C"
 			},
-			"package": "com.anonymous.Akafaapp"
+			"package": "com.MitsinjoFehizoro.Akafaapp"
 		},
 		"web": {
 			"bundler": "metro",
@@ -36,7 +36,7 @@
 					"resizeMode": "contain",
 					"backgroundColor": "#00377C",
 					"dark": {
-						"image": "./assets/splash-icon-dark.png",
+						"image": "./assets/images/splash-icon-dark.png",
 						"backgroundColor": "#1F334B"
 					}
 				}

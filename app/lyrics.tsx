@@ -49,7 +49,7 @@ export default function Lyrics() {
 						maximumValue={3}
 						value={zoom}
 						onSlidingComplete={setZoom}
-						thumbImage={require('@/assets/images/item.png')}
+						thumbImage={isDark ? require('@/assets/images/item-dark.png'):require('@/assets/images/item.png')}
 						minimumTrackTintColor={colors.primary}
 						maximumTrackTintColor={colors.grayDark}
 					/>

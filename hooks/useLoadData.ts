@@ -61,7 +61,7 @@ export const useLoadData = () => {
 		}
 	}
 
-	const loadData = useCallback(async () => {
+	const loadData = async () => {
 		const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
 		const infoPartitionDirectory = await FileSystem.getInfoAsync(partitionDirectory)
 		if (infoSongDirectory.exists && infoPartitionDirectory.exists) {
@@ -70,7 +70,7 @@ export const useLoadData = () => {
 		}
 		loadSongJson()
 		loadPartitions()
-	}, [])
+	}
 
 	const clearFileSystem = async (directoryUri: string) => {
 		try {

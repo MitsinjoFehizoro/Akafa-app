@@ -17,7 +17,7 @@ export function AkafaProfil() {
 				/>
 			</View>
 			<View style={[styles.wrapper, { backgroundColor: colors.background, borderColor: rgbaColor(colors.grayLight, 0.3) }]}>
-				{ isDark ? <SecondLogo /> : <ThirdLogo /> }
+				<SecondLogo />
 				<View style={{ width: 210 }}>
 					<CustomText style={{ textAlign: 'center' }} variant='subtitle2' color='grayLight'>Antsan'i KArmela FAnantenana Ambatolampy</CustomText>
 				</View>
