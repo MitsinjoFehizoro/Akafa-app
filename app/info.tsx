@@ -11,7 +11,6 @@ import { handleTheme } from "@/hooks/useContextTheme";
 import { rgbaColor } from "@/tools/rgbaColor";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useEffect } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 

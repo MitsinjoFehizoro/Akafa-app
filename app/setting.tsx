@@ -10,8 +10,7 @@ import { PADDING } from "@/constants/PADDING";
 import { handleTheme } from "@/hooks/useContextTheme";
 import { useUpdateData } from "@/hooks/useUpdateData";
 import { rgbaColor } from "@/tools/rgbaColor";
-import { useEffect } from "react";
-import { ActivityIndicator, Button, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { ActivityIndicator,Pressable, ScrollView, StyleSheet, View } from "react-native";
 
 export default function Setting() {
 	const { colors } = handleTheme()

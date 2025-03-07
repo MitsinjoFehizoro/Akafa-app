@@ -1,22 +1,26 @@
 {
 	"expo": {
-		"name": "Akafa-app",
-		"slug": "Akafa-app",
+		"name": "Akafa",
+		"slug": "Akafa",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/images/icon.png",
+		"icon": "./assets/images/icon1.png",
 		"scheme": "myapp",
 		"userInterfaceStyle": "automatic",
 		"newArchEnabled": true,
 		"ios": {
 			"supportsTablet": true
 		},
+		"splash": {
+			"image": "./assets/images/splash-icon1.png",
+			"backgroundColor": "#00377C"
+		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/images/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
+				"foregroundImage": "./assets/images/adaptive-icon1.png",
+				"backgroundColor": "#00377C"
 			},
-			"package": "com.anonymous.Akafaapp"
+			"package": "com.MitsinjoFehizoro.Akafaapp"
 		},
 		"web": {
 			"bundler": "metro",
@@ -28,10 +32,13 @@
 			[
 				"expo-splash-screen",
 				{
-					"image": "./assets/images/splash-icon.png",
-					"imageWidth": 200,
+					"image": "./assets/images/splash-icon1.png",
 					"resizeMode": "contain",
-					"backgroundColor": "#ffffff"
+					"backgroundColor": "#00377C",
+					"dark": {
+						"image": "./assets/splash-icon-dark.png",
+						"backgroundColor": "#1F334B"
+					}
 				}
 			],
 			"expo-font",

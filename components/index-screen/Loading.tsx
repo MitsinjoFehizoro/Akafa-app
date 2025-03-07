@@ -1,11 +1,11 @@
-import { ActivityIndicator, StatusBar, StyleSheet, View } from "react-native"
+import { ActivityIndicator, Image, StatusBar, StyleSheet, View } from "react-native"
 import { CustomSafeAreaView } from "../CustomSafeAreaView"
 import { handleTheme } from "@/hooks/useContextTheme"
 import { ThirdLogo } from "./Logo"
 import { CustomText } from "../CustomText"
 
 type Props = {
-	percentage: number
+	percentage: string
 }
 export function Loading({ percentage }: Props) {
 	const { colors } = handleTheme()
@@ -14,6 +14,9 @@ export function Loading({ percentage }: Props) {
 			<StatusBar barStyle='light-content' backgroundColor={colors.secondary} />
 			<View style={[styles.container, { backgroundColor: colors.secondary }]}>
 				<ThirdLogo />
+				{/* <Image
+					source={require('@/assets/images/splash-icon1.png')}
+				/> */}
 				<View style={styles.loading}>
 					<ActivityIndicator style={{ marginBottom: 16 }} size='large' color={colors.grayWhite} />
 					<CustomText variant='body2' color='grayWhite' >Mahandrasa kely...</CustomText>
