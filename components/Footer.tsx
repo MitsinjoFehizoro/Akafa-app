@@ -77,7 +77,7 @@ function MenuHome({ isActif }: MenuHomeProps) {
 							android_ripple={{ ...useAndroidRipple() }}
 						>
 							<View style={[styles.innerCircle, { backgroundColor: isDark ? isActif ? colors.primary : colors.background : colors.primary, borderColor: isDark ? isActif ? colors.background : rgbaColor(colors.grayLight, 0.2) : colors.background }]}>
-								<Feather name='home' size={22} color={ isDark ? isActif ? colors.grayWhite : colors.grayLight : colors.grayWhite} />
+								<Feather name='home' size={22} color={isDark ? isActif ? colors.grayWhite : colors.grayLight : colors.grayWhite} />
 							</View>
 						</Pressable>
 					</Link >

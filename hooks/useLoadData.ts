@@ -1,13 +1,12 @@
-
 import { Asset } from 'expo-asset'
 import * as FileSystem from "expo-file-system";
 import JSZip from 'jszip';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import songJson from '../assets/data/songs.json'
 import { Song } from '@/tools/type';
 
 export const useLoadData = () => {
-	const [isDataLoading, setIsDataLoading] = useState(true)
+	const [isDataLoading, setIsDataLoading] = useState(false)
 	const [percentage, setPercentage] = useState<string>('0.00')
 	const songDirectory = FileSystem.documentDirectory + 'songs/'
 	const partitionDirectory = FileSystem.documentDirectory + 'partitions/'
@@ -62,18 +61,16 @@ export const useLoadData = () => {
 		}
 	}
 
-	const loadData = async () => {
+	const loadData = useCallback(async () => {
 		const infoSongDirectory = await FileSystem.getInfoAsync(songDirectory)
 		const infoPartitionDirectory = await FileSystem.getInfoAsync(partitionDirectory)
 		if (infoSongDirectory.exists && infoPartitionDirectory.exists) {
 			setIsDataLoading(false)
 			return console.log('Songs and partitions already loaded.')
 		}
-
 		loadSongJson()
 		loadPartitions()
-
-	}
+	}, [])
 
 	const clearFileSystem = async (directoryUri: string) => {
 		try {
