@@ -14,12 +14,12 @@ export default function Partition() {
 	return (
 		<CustomSafeAreaView>
 			<HeaderSimple title={params.type.toString()} />
-			{/* <Pdf
+			<Pdf
 				source={{ uri: partitionUrl }}
 				style={styles.pdf}
 				trustAllCerts={false}
 				onError={(error) => console.log(error)}
-			/> */}
+			/>
 		</CustomSafeAreaView>
 	)
 }

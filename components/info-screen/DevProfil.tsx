@@ -21,7 +21,7 @@ export function DevProfil() {
 				</View>
 			</RowView>
 			<RowView>
-				<LinkProfil icon='phone' title='034 83 517 50/038 10 230 44' />
+				<LinkProfil icon='phone' title='038 10 230 44/033 62 740 33' />
 				<LinkProfil icon='envelope-open' title="mitsinjofehizoro/@gmail.com" style={[styles.link, { borderColor: rgbaColor(colors.grayLight, 0.3) }]} />
 				<LinkProfil icon='facebook' title='Mitsinjo Fehizoro Andriatsitohaina' />
 			</RowView>

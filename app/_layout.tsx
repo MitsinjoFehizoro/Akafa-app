@@ -9,6 +9,7 @@ export default function RootLayout() {
 			<ThemeContextProvider>
 				<Stack screenOptions={{ headerShown: false }}>
 					<Stack.Screen name='index' />
+					<Stack.Screen name='home' />
 					<Stack.Screen name='info' />
 					<Stack.Screen name='list' />
 					<Stack.Screen name='lyrics' />

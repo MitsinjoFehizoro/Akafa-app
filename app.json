@@ -4,7 +4,7 @@
 		"slug": "Akafa-app",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/images/icon1.png",
+		"icon": "./assets/images/icon_1.png",
 		"scheme": "myapp",
 		"userInterfaceStyle": "automatic",
 		"newArchEnabled": true,
@@ -17,7 +17,7 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/images/adaptive-icon1.png",
+				"foregroundImage": "./assets/images/adaptive-icon_1.png",
 				"backgroundColor": "#00377C"
 			},
 			"package": "com.MitsinjoFehizoro.Akafaapp"

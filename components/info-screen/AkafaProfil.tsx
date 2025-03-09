@@ -22,7 +22,7 @@ export function AkafaProfil() {
 					<CustomText style={{ textAlign: 'center' }} variant='subtitle2' color='grayLight'>Antsan'i KArmela FAnantenana Ambatolampy</CustomText>
 				</View>
 				<RowView>
-					<LinkProfil icon='phone' title='034 83 517 50/038 10 230 44' />
+					<LinkProfil icon='phone' title='034 83 517 50/033 48 004 89' />
 					<LinkProfil icon='facebook-square' title="Antsan'i KArmela/FAnantenana" style={[styles.link, { borderColor: rgbaColor(colors.grayLight, 0.3) }]} />
 					<LinkProfil icon='facebook' title='A.KA.FA/Ambatolampy' />
 				</RowView>

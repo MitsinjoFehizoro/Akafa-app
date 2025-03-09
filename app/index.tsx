@@ -2,13 +2,10 @@ import { View } from "react-native";
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
-import { CustomSafeAreaView } from "@/components/CustomSafeAreaView";
-import { Header } from "@/components/index-screen/Header";
-import { Body } from "@/components/index-screen/Body";
-import { Footer } from "@/components/Footer";
 import { useLoadData } from "@/hooks/useLoadData";
 import { handleTheme } from "@/hooks/useContextTheme";
 import { Loading } from "@/components/index-screen/Loading";
+import { router } from "expo-router";
 
 export default function Index() {
 	const { colors, getTheme } = handleTheme()
@@ -19,6 +16,7 @@ export default function Index() {
 	})
 
 	useEffect(() => {
+		console.log('theme loading')
 		getTheme()
 	}, [])
 
@@ -27,24 +25,13 @@ export default function Index() {
 		else SplashScreen.preventAutoHideAsync()
 	}, [loaded]);
 
+	
+
 	if (!loaded) {
 		return <View style={{ flex: 1, backgroundColor: colors.background }} />
 	}
 
-	return (
-		<CustomSafeAreaView>
-			{
-				isDataLoading ? (
-					<Loading percentage={percentage} />
-				) : (
-					<View style={{ flex: 1 }}>
-						<Header />
-						<Body />
-						<Footer menuActif='home' />
-					</View>
-				)
-			}
-		</CustomSafeAreaView>
-	);
+	return <Loading isDataLoading={isDataLoading} percentage={percentage} />
+
 }
 

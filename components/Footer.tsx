@@ -46,7 +46,7 @@ type MenuProps = {
 	icon: keyof typeof Entypo.glyphMap,
 	title: string,
 	isActif: boolean,
-	pathname: '/' | '/list' | '/info' | '/setting'
+	pathname: '/list' | '/info' | '/setting'
 }
 function MenuFooter({ icon, title, isActif, pathname }: MenuProps) {
 	const { colors, isDark } = handleTheme()
@@ -71,7 +71,7 @@ function MenuHome({ isActif }: MenuHomeProps) {
 		<View style={styles.homeContainer}>
 			<View style={styles.home}>
 				<View style={[styles.circle, { backgroundColor: colors.background, elevation: isDark ? 0 : .8 }]}>
-					<Link href={{ pathname: '/' }} asChild>
+					<Link href={{ pathname: '/home' }} asChild>
 						<Pressable
 							style={{ borderRadius: 70, overflow: 'hidden' }}
 							android_ripple={{ ...useAndroidRipple() }}
